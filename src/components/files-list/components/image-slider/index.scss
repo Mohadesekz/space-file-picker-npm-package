@@ -1,0 +1,17 @@
+.image-viewer {
+  .react-viewer-footer {
+    .react-viewer-navbar {
+      ul {
+        li {
+          width: unset !important;
+          margin-left: 2px;
+          img {
+            object-fit: contain;
+            width: unset;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

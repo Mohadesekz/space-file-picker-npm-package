@@ -1,0 +1,146 @@
+.player-video-slider {
+	position: fixed;
+	display: flex;
+	flex: 1 1 auto;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+
+	* {
+		direction: ltr;
+		outline: none;
+	}
+
+	.player-video-container {
+		width: 100vw;
+		max-width: 80%;
+		display: flex;
+		flex: 0 0 auto;
+		flex-direction: column;
+		transition: opacity .2s;
+		opacity: 1;
+		z-index: 21;
+		outline: none;
+		justify-content: center;
+
+		@media(max-width:767px) {
+			max-width: 100%;
+		}
+
+		@media(min-width: 1920px) {
+			max-width: 60%;
+		}
+
+		.player-video {
+			transition: transform .2s;
+			transform: scale(1);
+
+			img {
+				max-height: 70vh;
+				max-width: 100%;
+			}
+		}
+
+
+
+		&.bp3-overlay-enter,
+		&.bp3-overlay-exit,
+		&.next-slide {
+			opacity: 0;
+
+			.player-video {
+				transform: scale(0);
+			}
+		}
+
+		&.bp3-overlay-enter-active {
+			opacity: 1;
+
+			.player {
+				transform: scale(1);
+			}
+		}
+	}
+
+	.player-video-text {
+		display: flex;
+		flex: 1 0 auto;
+		position: absolute;
+		bottom: 30px;
+		height: auto;
+		outline: none;
+		width: 100%;
+
+		p {
+			margin: 0;
+			color: #fff;
+			text-align: center;
+			direction: ltr;
+			display: inline-block;
+
+			&.player-name {
+				padding-right: 30px;
+                padding-left: 30px;
+			}
+		}
+
+		.player-content-wrapper {
+			width: 100%;
+            display: flex;
+            flex-direction: column;
+		}
+	}
+
+	.prev-icon,
+	.next-icon {
+		cursor: pointer;
+		z-index: 22;
+		outline: none;
+		height: 50px;
+		&.disabled {
+			cursor: initial;
+			opacity: .2;
+		}
+        @media screen and (max-width: 500px) {
+            position: fixed;
+            bottom: 0;
+        }
+
+	}
+
+	.prev-icon {
+		right: 0;
+		padding: 10% 10px 10% 30px;
+	}
+
+	.next-icon {
+		left: 0;
+		padding: 10% 30px 10% 10px;
+	}
+
+	.bp3-icon-chevron-right,
+	.bp3-icon-chevron-left {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.bp3-icon-cross {
+		top: 7px;
+		right: 10px;
+		z-index: 30;
+		outline: none;
+		cursor: pointer;
+	}
+
+	.video-react {
+		position: unset;
+
+		.video-react-video {
+			outline: none;
+			background-color: transparent;
+		}
+	}
+}

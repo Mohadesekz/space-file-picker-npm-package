@@ -1,0 +1,87 @@
+.team-space-wrapper {
+  padding: 15px 45px;
+  text-align: center; }
+  .team-space-wrapper .title {
+    font-family: YekanBakh;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #263238; }
+  .team-space-wrapper form {
+    padding: 15px 0;
+    display: inline-block; }
+    .team-space-wrapper form .file-input {
+      position: relative;
+      display: inline-block;
+      width: 75px;
+      height: 75px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      overflow: hidden;
+      cursor: pointer; }
+    .team-space-wrapper form .custom-file-input::-webkit-file-upload-button {
+      visibility: hidden; }
+    .team-space-wrapper form .custom-file-input::before {
+      content: '';
+      display: inline-block;
+      background: linear-gradient(top, #f9f9f9, #e3e3e3);
+      border: 1px solid #999;
+      border-radius: 3px;
+      padding: 5px 8px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      text-shadow: 1px 1px #fff;
+      font-weight: 700;
+      font-size: 10pt; }
+    .team-space-wrapper form .custom-file-input:hover::before {
+      border-color: black; }
+    .team-space-wrapper form .custom-file-input:active::before {
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); }
+    .team-space-wrapper form .bp3-form-group {
+      margin-bottom: 30px; }
+      .team-space-wrapper form .bp3-form-group .bp3-label {
+        color: #707070;
+        font-size: 13px;
+        font-weight: bold; }
+      .team-space-wrapper form .bp3-form-group .bp3-input {
+        min-width: 265px; }
+      .team-space-wrapper form .bp3-form-group .option {
+        display: flex;
+        font-size: 13px;
+        margin: 10px 0;
+        cursor: pointer; }
+      .team-space-wrapper form .bp3-form-group.privacy {
+        border-top: 1px solid #ccc; }
+      .team-space-wrapper form .bp3-form-group.avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .team-space-wrapper form .bp3-form-group.avatar svg {
+          width: 35px;
+          height: 35px; }
+        .team-space-wrapper form .bp3-form-group.avatar .custom-file-input {
+          position: absolute;
+          right: 0;
+          left: 0;
+          display: inline-block;
+          opacity: 0;
+          cursor: pointer;
+          max-width: 55px;
+          height: 30px; }
+    .team-space-wrapper form .action-buttons button {
+      min-width: 100px; }
+    .team-space-wrapper form .error label {
+      display: inline-block;
+      color: #f30d0d;
+      font-size: 13px;
+      padding: 10px 0; }

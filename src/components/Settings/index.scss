@@ -1,0 +1,161 @@
+@import '../../stylesheet/variables';
+
+.title-header{
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: $textColor;
+    padding: 5px 0;
+    border-bottom: 1px solid;
+    margin: 20px;
+    border-bottom: 1px solid $borderColor;
+}
+
+.main-wrapper{
+    padding: 15px 20px;
+    display: block;
+    max-width: 100%;
+    .title{
+        font-family: YekanBakh;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: $textColor;
+    }
+    .description{
+        padding-left: 25px;
+        margin: 0;
+        width: 50%;
+        font-size: 14px;
+        max-width: 600px;
+        line-height: 2;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 0;
+        }
+    }
+    table{
+        width: 100%;
+        max-width: 750px;
+        thead{
+            border: solid 0.5px $theadColor;
+            background-color: $theadColor;
+            th{
+                padding: 15px 17px;
+                font-size: 14px;
+                font-weight: bold;
+                color: $textColor;
+                &.actions{
+                    text-align: center;
+                }
+                @media screen and (max-width: 768px) {
+                    min-width: 100px;
+                }
+            }
+        }
+        tbody{
+            overflow: auto;
+            border: solid 0.5px $theadColor;
+            padding-right: 1px;
+            tr:nth-child(even) {background:  $oddTableRows}
+            tr{
+                font-size: 13px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+                text-align: right;
+                color: $textColor;
+                td{
+                    padding: 15px 17px;
+                    font-weight: normal;
+                    &.actions{
+                        text-align: center;
+                        span{
+                            cursor: pointer;
+                            svg{
+                                color: $defaultTextColor;
+                                &:hover{
+                                    color: $danger-color-500;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    select{
+        border-radius: 3px;
+        min-width: 175px;
+        padding: 5px;
+        font-size: 14px;
+        font-family: "yekanbakh", "roboto";
+        cursor: pointer;
+        border-color: $borderColor;
+        color: $textColor;
+        &:disabled{
+            border: 1px solid $disabledColor;
+            color: $disableColorButton;
+            background-color: $disableBackgroudButton;
+        }
+    }
+    button{
+        &outlined{
+            border: 1px solid $primary-color-500;
+            color: $primary-color-500;
+        }
+        color: $defaultTextColor;
+        border: 1px solid $borderColor;
+        box-shadow: none !important;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 3px;
+        min-width: 135px;
+        text-align: center;
+        height: 35px;
+        &:disabled{
+            border-color: $disableButtonColor;
+            color: $disableColorButton;
+            background:$disableBackgroudButton;
+        }
+    }
+    .tabs{
+        .bp3-tab-list{
+            border: none !important;
+            .bp3-tab{
+                width: fit-content !important;
+                padding: 0 0 0 45px;
+            }
+        }
+        .bp3-tab-panel{
+            border: 1px solid $theadColor;
+            border-radius: 3px;
+            margin-top: 0;
+            border-top: none;
+        }
+    }
+    .spinner-container{
+        display: inline-block;
+        padding: 0 45px;
+    }
+    .empty-message{
+        font-size: 14px;
+        padding: 15px 0;
+        span{
+            float: right;
+            margin: 3px 0 0 5px;
+            svg{
+
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+@import '../../../../stylesheet/variables';
+
+.ftp-container{
+  margin-top: 35px;
+  .ftp-form{
+    display: flex;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+   .description{
+    display: inline-block;
+    width: auto;
+    margin-left: 45px;
+    @media screen and (max-width: 768px) {
+      margin-left:0;
+      width: 100%;
+    }
+   } 
+   .token-key{
+    font-size: 14px;
+    color: $defaultColor;
+    margin: 0 0 0 45px;
+   }
+   .expires-date{
+    font-size: 13px;
+    color: $defaultColor;
+    margin: 0 0 0 35px;
+    min-width: 150px;
+    span{
+      min-width: 100%;
+      display: inline-block;
+      font-size: 14px;
+    }
+   }
+   .actions{
+      display: flex;
+      align-items: center;
+      width: 300px;
+      justify-content: space-around;
+      @media screen and (max-width: 768px) {
+        max-width: 100%;
+        flex-direction: column;
+      }
+     .default-outline{
+      @media screen and (max-width: 768px) {
+        margin: 5px 0;
+        width: 100%;
+      }
+       .bp3-button-text{
+        display: flex;
+        align-items: center;
+        svg{
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin: 0 5px;
+        }
+        .bp3-icon{
+          color: $defaultTextColor;
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-left: 10px;
+          svg{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px; 
+          }
+        }
+       }
+      min-height: 40px;
+      color: $defaultTextColor;
+     }
+   }
+  }
+}

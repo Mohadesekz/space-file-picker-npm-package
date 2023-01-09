@@ -1,0 +1,39 @@
+.organ-wrapper .user-form {
+  margin-top: 35px;
+  padding: 0 15px; }
+  .organ-wrapper .user-form .description {
+    display: flex;
+    font-size: 13px;
+    color: #90a4ae;
+    align-items: center; }
+    .organ-wrapper .user-form .description button {
+      color: #3d86ff;
+      display: flex;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #3d86ff;
+      font-size: 14px;
+      font-weight: 600; }
+      .organ-wrapper .user-form .description button .button-title {
+        color: #3d86ff;
+        font-size: 14; }
+    .organ-wrapper .user-form .description small {
+      display: inline-block;
+      margin-bottom: 10px; }
+    .organ-wrapper .user-form .description .new-user .bp3-icon {
+      color: #3d86ff;
+      margin-left: 10px; }
+  .organ-wrapper .user-form form {
+    margin: 15px 0;
+    display: flex; }
+    .organ-wrapper .user-form form .bp3-form-group {
+      flex-direction: row;
+      margin-left: 35px;
+      margin-bottom: 0; }
+      .organ-wrapper .user-form form .bp3-form-group label {
+        margin-left: 10px;
+        line-height: 2; }
+      .organ-wrapper .user-form form .bp3-form-group .bp3-input {
+        min-width: 150px;
+        height: 35px; }

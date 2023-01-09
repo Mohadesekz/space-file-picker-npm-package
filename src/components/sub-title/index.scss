@@ -1,0 +1,13 @@
+.sub-title {
+	color: #263238;
+	font-size: 14px;
+	font-weight: 100;
+    padding-top: 10px;
+	@media screen and (min-width:600px) and (max-width: 979px) {
+		margin-right: 22px;
+	}
+
+	@media screen and (max-width: 599px) {
+		margin-right: 16px;
+	}
+}

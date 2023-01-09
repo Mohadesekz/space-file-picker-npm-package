@@ -1,0 +1,40 @@
+.icon-btn {
+  padding: 10px;
+  height: 40px;
+  float: left;
+  margin-top: 5px;
+  margin-left: 15px;
+  display: flex;
+  line-height: 1.4;
+  cursor: pointer;
+  p {
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    color: #546e7a;
+    font-family: 'yekanbakh', 'roboto';
+  }
+  .user-avatar {
+    // background-color: #eaeaea;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    float: right;
+    // background-image: url('/static/media/default-avatar.5097b024.png');
+    overflow: hidden;
+    margin-right: 5px;
+  }
+  .username {
+    color: #78909c;
+    font-family: 'yekanbakh', 'roboto';
+    font-size: 14px;
+    line-height: 2.5;
+    padding: 0 5px;
+  }
+}

@@ -1,0 +1,111 @@
+.title-header {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: right;
+  color: #263238;
+  padding: 5px 0;
+  border-bottom: 1px solid;
+  margin: 20px;
+  border-bottom: 1px solid #ccc; }
+
+.main-wrapper {
+  padding: 15px 20px;
+  display: block;
+  max-width: 100%; }
+  .main-wrapper .title {
+    font-family: YekanBakh;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #263238; }
+  .main-wrapper .description {
+    padding-left: 25px;
+    margin: 0;
+    width: 50%;
+    font-size: 14px;
+    max-width: 600px;
+    line-height: 2; }
+  .main-wrapper table {
+    width: 100%;
+    max-width: 750px; }
+    .main-wrapper table thead {
+      border: solid 0.5px #f3f3f3;
+      background-color: #f3f3f3; }
+      .main-wrapper table thead th {
+        padding: 15px 17px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #263238; }
+        .main-wrapper table thead th.actions {
+          text-align: center; }
+    .main-wrapper table tbody {
+      height: 300px;
+      overflow: auto;
+      border: solid 0.5px #f3f3f3;
+      padding-right: 1px; }
+      .main-wrapper table tbody tr:nth-child(even) {
+        background: #efefef; }
+      .main-wrapper table tbody tr {
+        font-size: 13px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        text-align: right;
+        color: #263238; }
+        .main-wrapper table tbody tr td {
+          padding: 15px 17px;
+          font-weight: normal; }
+          .main-wrapper table tbody tr td.actions {
+            text-align: center; }
+            .main-wrapper table tbody tr td.actions span {
+              cursor: pointer; }
+              .main-wrapper table tbody tr td.actions span svg {
+                color: #90a4ae; }
+                .main-wrapper table tbody tr td.actions span svg:hover {
+                  color: #f30d0d; }
+  .main-wrapper select {
+    border-radius: 3px;
+    min-width: 175px;
+    min-height: 35px;
+    font-size: 14px;
+    font-family: "yekanbakh", "roboto";
+    cursor: pointer;
+    border-color: #ccc;
+    color: #263238; }
+    .main-wrapper select :disabled {
+      border: 1px solid #e0e0e0;
+      color: rgba(206, 217, 224, 0.5); }
+  .main-wrapper button {
+    color: #90a4ae;
+    border: 1px solid #ccc;
+    box-shadow: none !important;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 3px;
+    min-width: 135px;
+    text-align: center;
+    height: 35px; }
+    .main-wrapper buttonoutlined {
+      border: 1px solid #3d86ff;
+      color: #3d86ff; }
+    .main-wrapper button:disabled {
+      border-color: rgba(206, 217, 224, 0.5);
+      color: rgba(92, 112, 128, 0.5);
+      background: rgba(206, 217, 224, 0.5); }
+  .main-wrapper .tabs .bp3-tab-list {
+    border: none !important; }
+    .main-wrapper .tabs .bp3-tab-list .bp3-tab {
+      width: fit-content !important;
+      padding: 0 0 0 45px; }
+  .main-wrapper .tabs .bp3-tab-panel {
+    border: 1px solid #f3f3f3;
+    border-radius: 3px;
+    margin-top: 0;
+    border-top: none; }

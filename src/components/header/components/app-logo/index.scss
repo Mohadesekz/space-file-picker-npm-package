@@ -1,0 +1,40 @@
+.app-header {
+	.app-logo {
+		width: 145px;
+		height: 33px;
+		margin: 9px 20px 15px 20px;
+		background-repeat: no-repeat;
+		position: absolute;
+
+		@media screen and (max-width: 768px) {
+			width: 50px;
+			height: 63px;
+			margin: 0px 20px;
+			background-repeat: no-repeat;
+			position: absolute;
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	.app-logo svg {
+		float: right;
+		margin-left: 10px;
+		font-size: 17px;
+		color: #1e88e5;
+	}
+
+	.app-logo h2 {
+		color: #1e88e5;
+		font-size: 17px;
+		font-weight: bold;
+
+		@media screen and (max-width: 500px) {
+			display: none;
+		}
+
+		@media screen and (max-width: 830px) {
+			display: none;
+		}
+	}
+}

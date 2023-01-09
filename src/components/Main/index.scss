@@ -1,0 +1,92 @@
+@import '../../stylesheet/variables';
+
+html{
+    height: 100%;
+    body{
+        height: 100%;
+        #root{
+            height: 100%;
+            .main-container{
+                display: flex;
+                width: auto;
+                height: calc(100% - 65px);
+                overflow: auto;
+                .app-sidebar-overlay {
+                    position: fixed;
+                    display: none;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: calc(100% - 63px);
+                    width: 100%;
+                    background-color: rgba(16, 22, 26, .7);
+                    z-index: 20;
+                    &.show {
+        
+                        @media screen and (max-width: 600px) {
+                            height:100%;
+                        }
+                        @media screen and (max-width: 980px) {
+                            display: block;
+                            animation: opacity-in .4s;
+                        }
+                    }
+                    @keyframes opacity-in {
+                        0% {
+                            opacity: 0;
+                            display: block;
+                        }
+        
+                        100% {
+                            opacity: 1;
+                            display: block;
+                        }
+                    }
+                    
+                }
+                .page-container{
+                    margin-right: 221px;
+                    display: inline-block;
+                    width: 100%;
+                    height: fit-content;
+                    padding-bottom: 135px;
+                    @media screen and (max-width: 980px) {
+                        margin-right:0;
+                    }
+                    .toggle-sidebar{
+                        display: flex;
+                        padding: 5px 10px;
+                        align-items: center;
+                        border-bottom: 1px solid #e7e9ec;
+                        margin: 10px 15px;
+                        .bp3-icon{
+                          cursor: pointer;
+                        }
+                        h1{
+                            margin: 0;
+                            font-size: 16px;
+                            color: $textColor;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            letter-spacing: normal;
+                            @media screen and (max-width: 980px) and (min-width:600px) {
+                                margin: 0 15px;
+                            }
+                        }
+                        .bp3-icon-menu{
+                            display: none;
+                            @media screen and (max-width: 980px) and (min-width:600px) {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    @media screen and (max-width: 980px) {
+                        margin-right: 0;
+                    }
+                }
+                margin-left: 5px;
+            }
+        }
+    }
+}

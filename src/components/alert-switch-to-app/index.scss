@@ -1,0 +1,56 @@
+.alert-switch-to-app {
+  display: none;
+
+  @media (hover: none) and (pointer: coarse) and (max-width:1024px) {
+    position: fixed;
+    display: block;
+    z-index: 9999;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    bottom: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-box-shadow: -2px -4px 11px -4px rgba(221, 221, 221, 1);
+    -moz-box-shadow: -2px -4px 11px -4px rgba(221, 221, 221, 1);
+    box-shadow: -2px -4px 11px -4px rgba(221, 221, 221, 1);
+    text-align: center;
+
+    .app-logo {
+      width: 50px;
+    }
+
+    .app-title {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .app-link {
+      display: inline-block;
+      width: calc(50% - 5px);
+      text-align: center;
+      font-weight: bold;
+      background-color: #1e88e5;
+      box-sizing: border-box;
+      padding: 10px 15px;
+      color: #ffffff;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-left: 5px;
+      text-decoration: none;
+    }
+
+    .app-ignore {
+      outline: none;
+      border: none;
+      background-color: #ffffff;
+      width: calc(50% - 5px);
+      padding: 10px;
+      margin-right: 5px;
+      font-size: 13px;
+      text-align: center;
+      color: #5d7784;
+    }
+  }
+}

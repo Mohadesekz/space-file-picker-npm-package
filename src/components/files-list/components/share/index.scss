@@ -1,0 +1,496 @@
+.share-modal {
+	.access-dialog{
+		display: inline-block;
+		width: 100%;
+		margin: 0 0 10px 0;
+		position: relative;
+		.username{
+			margin: 5px 0 0 0;
+		}
+		.remove-icon{
+			position: absolute;
+			left: 9px;
+			bottom: 0;
+			cursor: pointer;
+		}
+	}
+
+	.button-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-around,
+	}
+
+	.alert-success {
+		font-size: 13px;
+		background-color: #4caf5026;
+		padding: 5px 10px;
+		border-radius: 3px;
+		border: 1px solid #409344;
+		color: #409344;
+		margin-right: 10px;
+	}
+
+	.password-title {
+		margin-bottom: 15px;
+		display: flex;
+
+		P {
+			margin: 3px 5px 0 0;
+		}
+	}
+
+	.shared-link-input {
+		display: flex;
+		position: relative;
+
+		.copy-to-clipord {
+			position: absolute;
+			right: 4px;
+			bottom: 4px;
+			min-height: 24px;
+			padding: 0 4px;
+			background: #f5f5f5;
+			border-radius: 2px;
+			box-shadow: none;
+
+			.bp3-icon {
+				margin: 4px 5px 0 5px;
+				color: #7f7f7f;
+			}
+		}
+
+		.flex {
+			display: flex;
+
+			.link-text {
+				margin: 0;
+				font-size: 12px;
+				font-weight: normal;
+				color: #7f7f7f;
+			}
+		}
+
+		.bp3-input {
+			color: #959595;
+			text-align: left;
+			direction: ltr;
+			min-height: 30px;
+			font-size: 13px;
+			font-family: 'roboto';
+		}
+	}
+
+	.share-short-link {
+		font-size: 12px;
+		font-weight: normal;
+		color: #2979ff;
+		outline: none;
+		border: none;
+		background: none;
+		margin-top: 5px;
+		cursor: pointer;
+	}
+
+	.share-link-password {
+		font-size: 14px;
+		font-weight: normal;
+		color: #707070;
+		outline: none;
+		border: none;
+		background: none;
+		cursor: pointer;
+
+		.bp3-icon {
+			transform: rotate(45deg);
+			margin: 0 0 -4px 7px;
+		}
+	}
+
+	.form-group-short-link {
+		.bp3-form-helper-text {
+			float: left;
+		}
+	}
+
+	.shared-link-input .bp3-input-group {
+		flex: 1;
+	}
+
+	.share-button-container {
+		.bp3-form-content {
+			label.bp3-label {
+				direction: ltr;
+				text-align: left;
+				width: 100%;
+				display: block;
+				margin-bottom: 10px;
+				color: #707070;
+				font-size: 14px;
+				position: relative;
+				@media(max-width:768px) {
+				  padding-top: 35px;
+				}
+				.file-name {
+					font-weight: normal;
+                    text-align: right;
+                    display: inherit;
+                    float: right;
+					@media(max-width:768px) {
+						display: inline-block;
+						/* width: 300px; */
+						white-space: nowrap;
+						overflow: hidden !important;
+						text-overflow: ellipsis;
+						direction: ltr;
+						text-align: right;
+						margin-left: auto;
+						margin-right: 0;
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+					}
+				}
+
+				a.share-button {
+					float: left;
+					border: 1px solid rgba($color: #7f7f7f, $alpha: 0.53);
+					font-size: 14px;
+					font-weight: normal;
+					padding: 0 12px;
+					border-radius: 20px;
+					color: #7f7f7f;
+					@media(max-width:768px) {
+						width: 100%;
+						padding: 0;
+					}
+					.bp3-icon {
+						margin: 0 0 0 7px;
+						color: #7f7f7f;
+
+						svg {
+							width: 14px;
+						}
+					}
+				}
+			}
+		}
+
+		&.no-margin-bottom {
+			margin-bottom: 0;
+		}
+	}
+
+	div:not(.bp3-form-group) {
+		.bp3-label {
+			display: inline;
+			font-size: 14px;
+			color: #010101;
+			font-weight: bold;
+			margin: 5px 0 10px 0;
+		}
+
+		.bp3-control-indicator,
+		.bp3-control {
+			font-size: 13px;
+			color: #252525;
+		}
+	}
+
+	.bp3-intent-danger {
+		.react-tagsinput {
+			border-color: #db3737;
+
+			&.react-tagsinput--focused {
+				border-color: #db3737;
+			}
+		}
+
+		&.jdtrp>div.bp3-form-content {
+			input {
+				border-color: #db3737;
+
+				&:focus {
+					border-color: #db3737;
+				}
+			}
+		}
+	}
+
+	.react-tagsinput {
+		outline: none;
+		border: 0;
+		appearance: none;
+		border: solid 1px #e0e0e0;
+		border-radius: 4px;
+		padding: 5px 0 0 5px;
+		min-height: 30px;
+
+		&.react-tagsinput--focused {
+			border-color: #2979ff;
+		}
+
+		.react-tagsinput-tag {
+			background-color: #e7effd;
+			border: 1px solid #3f87ff;
+			color: #1250f3;
+			font-family: 'roboto';
+			border-radius: 4px;
+			padding: 2px 5px 3px;
+
+			+.react-tagsinput-input {
+				width: 290px;
+				color: #252525;
+				font-size: 14px;
+
+				&::placeholder {
+					color: #959595;
+				}
+			}
+		}
+
+		.react-tagsinput-input {
+			width: calc(100% - 5px);
+			font-family: inherit;
+			margin: 0;
+		}
+
+		.react-tagsinput-remove {
+			text-decoration: none;
+			margin-right: 5px;
+			margin-left: 5px;
+		}
+	}
+
+	.jdtrp {
+		>div.bp3-form-content {
+			margin: 0;
+
+			input {
+				margin: 0;
+				outline: none;
+				border: solid 1px #e0e0e0;
+				padding: 6px;
+				width: 100%;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				border-radius: 3px;
+				height: auto !important;
+
+				&::placeholder {
+					color: #959595 !important;
+				}
+
+				&:focus {
+					border-color: #2979ff;
+				}
+			}
+
+			.JDatePicker {
+				box-shadow: 0 0 0 1px rgba(16, 22, 26, .1), 0 4px 8px rgba(16, 22, 26, .2), 0 18px 46px 6px rgba(16, 22, 26, .2);
+
+				@media(max-width: 767px) {
+					left: 50%;
+					transform: translateX(-50%) translateY(-50%);
+					top: 50%;
+				}
+
+				.JDheader {
+					>.right {
+						.number {
+							width: initial;
+							padding-bottom: 1px;
+
+							&:hover {
+								border-color: #cfd9db;
+								border-style: solid;
+								border-width: 0 0 1px;
+								padding-bottom: 0;
+							}
+						}
+
+						.JC-years {
+							input {
+								border-color: #cfd9db;
+								border-style: solid;
+								border-width: 0 0 1px;
+								width: 10%;
+								margin-right: 5px;
+								padding: 0 2px 0 0;
+								top: 4px;
+								text-align: right;
+							}
+						}
+					}
+
+					>.left {
+						display: none;
+					}
+				}
+
+				.JC-years {
+					div.right {
+						select {
+							border-color: #2879ff;
+						}
+					}
+				}
+
+				.JC-months {
+					.holder {
+						float: none;
+						width: 60%;
+						display: inline-block;
+						margin-right: 17.5%;
+
+						.monthPicker {
+							box-shadow: 0 0 0 1px rgba(16, 22, 26, .1), 0 4px 8px rgba(16, 22, 26, .2), 0 18px 46px 6px rgba(16, 22, 26, .2);
+							width: 90%;
+							margin-right: 5%;
+
+							.month-items {
+								border: 0;
+								transition: background-color 150ms, color 150ms;
+
+								&.selected {
+									background-color: #2879ff;
+									color: #fff;
+								}
+
+								&:hover {
+									background-color: rgba(40, 121, 255, .10);
+									color: #000;
+								}
+							}
+						}
+					}
+				}
+
+				.JC-days {
+					.day-items {
+						transition: background-color 150ms, color 150ms;
+
+						&.current-date {
+							background-color: #0f9960;
+							color: #fff;
+						}
+
+						&.selected {
+							background-color: #2879ff;
+							color: #fff;
+						}
+					}
+				}
+
+				button {
+					width: calc(50% - 20px);
+					text-align: center;
+					padding: 2px 0;
+					font-size: 12px;
+					font-weight: 100;
+					border-radius: 3px;
+					cursor: pointer;
+					transition: opacity 150ms;
+
+					&:hover {
+						opacity: .8;
+					}
+				}
+
+				.JDsubmit {
+					background-color: #2879ff;
+					background-image: linear-gradient(to bottom, rgba(255, 255, 255, .1), rgba(255, 255, 255, 0));
+
+					&:active {
+						background-image: none;
+					}
+				}
+
+				.JDcancel {
+					background-color: transparent;
+					color: #182026;
+					background: transparent;
+					margin-right: 5px;
+					width: 50px;
+
+					&:hover {
+						background: rgba(167, 182, 194, .3);
+					}
+
+					&:active {
+						background: rgba(115, 134, 148, .3);
+					}
+				}
+			}
+
+		}
+	}
+
+	.previous-accesses {
+		.tag {
+			display: inline-block;
+			background-color: #e1f5fe;
+			border-radius: 13px;
+			padding: 2px;
+			margin: 0 0 8px 8px;
+
+			.user-avatar {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				overflow: hidden;
+				border-radius: 100%;
+				vertical-align: middle;
+				margin: 0;
+
+				img {
+					margin: 0;
+					width: 100%;
+				}
+			}
+
+			.tag-title {
+				font-size: 11px;
+				color: #01579b;
+				font-weight: normal;
+                margin: 0 5px;
+                display: flex;
+                align-items: center;
+                margin-right: 25px;
+                .bp3-icon{
+                  cursor: pointer;
+                  margin-bottom: 2px;
+                  margin-right: 5px;
+                  &:hover{
+                      color: red;
+                  }
+                }
+			}
+
+			.tag-action {
+				margin-left: 3px;
+				width: 14px;
+				height: 14px;
+				background: #7cb1ca;
+				outline: none;
+				border: none;
+				color: #fff;
+				border-radius: 100%;
+				display: inline-block;
+				padding: 1px;
+				cursor: pointer;
+				vertical-align: middle;
+
+				.bp3-icon {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.share-password-modal {
+	width: 260px;
+}

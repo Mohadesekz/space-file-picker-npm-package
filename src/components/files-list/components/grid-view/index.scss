@@ -1,0 +1,312 @@
+@import '../../../../stylesheet/extend';
+
+$easing: cubic-bezier(0.5, 0, 0.2, 1);
+$duration: 400ms;
+
+.dropzone-grid {
+  transition: background-color 0.5s;
+  padding: 5px;
+  .bp3-icon {
+    &.bp3-icon-cross {
+      color: #ff00004f;
+    }
+  }
+
+  .bp3-non-ideal-state {
+    .bp3-non-ideal-state-visual {
+      margin-bottom: 0;
+    }
+
+    .bp3-heading {
+      color: #afb8c0;
+      font-weight: 100;
+    }
+    .bp3-icon.bp3-icon-folder-open {
+      color: #cbcbcb;
+    }
+  }
+
+  &::before {
+    position: fixed;
+    left: calc(50% - 200px);
+    bottom: -85px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    box-shadow: 0 7px 31px -8px rgba(0, 0, 0, 0.75);
+    width: 337px;
+    height: 55px;
+    padding-top: 25px;
+    content: '\aفایل را در مکان مورد نظر رها کنید';
+    font-family: inherit;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+    white-space: pre-line;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+    z-index: 998;
+  }
+
+  &::after {
+    transition: opacity 0.5s, bottom 0.5s;
+    opacity: 0;
+    position: fixed;
+    content: '\E691';
+    font-family: Icons16;
+    bottom: -30px;
+    display: block;
+    width: 337px;
+    left: calc(50% - 200px);
+    font-size: 30px;
+    color: #469de0;
+    text-align: center;
+    z-index: 999;
+  }
+
+  &.dropzone-active {
+    background-color: #bad3fc;
+
+    table td,
+    .tbody td,
+    table thead {
+      border-bottom-color: transparent;
+    }
+
+    &.dropzone-reject {
+      background-color: #de5f5f;
+
+      &::before {
+        background-color: #6494e8;
+        box-shadow: inset 2px 2px #f44242, inset -2px -2px #f44242, 0 1px 2px rgba(0, 0, 0, 0.1);
+        content: 'فایل شما قابل بارگذاری نمیباشد \2717';
+      }
+    }
+
+    &::after {
+      opacity: 1;
+      bottom: 70px;
+      animation: bounce 0.67s ease-in-out 0.2s;
+      animation-iteration-count: 7;
+    }
+
+    &::before {
+      opacity: 1;
+      bottom: 30px;
+    }
+  }
+
+  .grid-view {
+    transition: padding 0.1s;
+
+    > div {
+      overflow: hidden !important;
+
+      .infinite-scroll-component {
+        overflow-y: auto;
+        overflow-x: hidden !important;
+        max-height: calc(100vh - 80px);
+        .bp3-non-ideal-state {
+          height: 80px;
+          .bp3-non-ideal-state-visual {
+            font-size: 20px;
+            margin-bottom: 10px;
+
+            .bp3-icon-circle-arrow-down {
+              &.to-up {
+                animation: rotate180deg 0.4s ease-out forwards;
+              }
+            }
+          }
+        }
+      }
+    }
+    .recents-btn {
+      position: relative;
+      bottom: 21px;
+      right: 115px;
+      cursor: pointer;
+      @media screen and (max-width: 979px) {
+        right: 130px;
+      }
+    }
+
+    .grid {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      padding-bottom: 75px;
+      @media screen and (max-width: 600px) {
+        padding-bottom: 55px;
+      }
+      &.audio-is-playing {
+        @media screen and (max-width: 600px) {
+          padding-bottom: 140px;
+        }
+      }
+
+      &.recents {
+        @extend %scrollbar;
+        display: flex;
+        flex-wrap: wrap;
+        height: 245px;
+        overflow: hidden;
+        padding-bottom: 10px;
+        max-width: calc(100vw - 30px);
+        margin: auto;
+        .box-container:last-child {
+          padding-left: 20px;
+
+          @media screen and (max-width: 600px) {
+            padding-left: 15px;
+          }
+        }
+
+        .box-container:first-child {
+          @media screen and (min-width: 601px) and (max-width: 979px) {
+            padding-right: 20px;
+          }
+
+          @media screen and (max-width: 600px) {
+            padding-right: 15px;
+          }
+        }
+
+        .box-container .box .like-icon {
+          cursor: default;
+          transform: none;
+        }
+      }
+
+      @media screen and (max-width: 1110px) {
+        &.recents {
+          flex-wrap: nowrap;
+          overflow: auto;
+        }
+      }
+
+      &.folders,
+      &.files {
+        flex-wrap: wrap;
+      }
+
+      &.folders {
+        padding-top: 30px;
+
+        @media screen and (min-width: 601px) and (max-width: 979px) {
+          padding-right: 20px;
+          padding-left: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+          padding-right: 10px;
+          padding-left: 10px;
+          padding-top: 10px;
+          padding-bottom: 80px;
+        }
+      }
+
+      &.files {
+        @media screen and (min-width: 601px) and (max-width: 979px) {
+          padding-right: 20px;
+          padding-left: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+          padding-right: 15px;
+          padding-left: 0;
+          // padding-top: 10px;
+        }
+
+        span.bp3-icon.bp3-icon-circle {
+          position: absolute;
+          color: #3f87ff;
+          top: -22px;
+          right: 0;
+        }
+      }
+
+      span.bp3-icon.bp3-icon-circle {
+        position: absolute;
+        color: #3f87ff;
+        top: -22px;
+        right: 0;
+
+        @media screen and (max-width: 600px) {
+          top: 2px;
+          right: 2px;
+          z-index: 1;
+        }
+
+        &.selected::after {
+          opacity: 1;
+        }
+
+        &:hover::after {
+          @media screen and (min-width: 601px) {
+            opacity: 0.2;
+          }
+        }
+
+        &::after {
+          content: '\E779';
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: opacity 0.5s;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .grid-extra {
+    padding-top: 10px;
+    min-height: calc(100vh - 175px);
+    display: flex;
+    align-items: center;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    padding-bottom: 4px;
+  }
+
+  25% {
+    padding-bottom: 8px;
+  }
+
+  50% {
+    padding-bottom: 4px;
+  }
+
+  75% {
+    padding-bottom: 0;
+  }
+
+  to {
+    padding-bottom: 4px;
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate180deg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(180deg);
+  }
+}

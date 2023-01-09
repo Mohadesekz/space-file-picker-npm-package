@@ -1,0 +1,644 @@
+$main-background-100 :#2b3a45;
+$main-background-200: #1e2325;
+$main-background-300: #23313c;
+$main-background-400: #182129;
+
+$border-color: #3d4e5c;
+
+$color-text-100: #d7dde0;
+$color-text-200: #aac4d1;
+
+$backgroun-input: #212b34;
+
+$primary-color-500: #1e88e5;
+
+$icon-color: #ABBBC3;
+
+$disabledTextColor: #7c7c7c; 
+$disabledColor: #404040;
+
+$folder-hover: #313a42;
+
+$dropzone-hover : #1b2834;
+
+.bp3-dark{
+    #root{
+        background-color: $main-background-200;
+    }
+    background-color: $main-background-200;
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px #3d4549;
+        background-color: $main-background-100;
+    }
+    
+    ::-webkit-scrollbar {
+        width: 6px;
+        background-color: $main-background-100;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: #415766;
+    }
+    .app-header{
+        background-color: $main-background-100;
+        border-color: $border-color;
+    }
+    .app-sidebar{
+        background-color: $main-background-100;
+        border-color: $border-color;
+    }
+    .side-links ul li a{
+       color: $color-text-200;
+       &:hover{
+        color: $color-text-100;
+       }
+       &.active{
+           color: $primary-color-500;
+       }
+    }
+    input{
+        background-color: $backgroun-input !important;
+        color: $color-text-100 !important;
+    }
+    button[disabled]{
+        background-color: $disabledColor;
+        &:hover{
+            background-color: $disabledColor;
+        }
+    }
+    .bp3-dialog-header{
+        background-color: $main-background-100;
+    }
+    .bp3-input {
+        box-shadow: none !important;
+        border-color: $border-color !important;
+    }
+    .app-content{
+        background-color: $main-background-200 !important;
+        .breadcrumb{
+            border-color: $border-color;
+            .head-title{
+                color: $color-text-100 !important;
+            }
+            .icon-info{
+                border-color: $border-color;
+            }
+            .bradcrumb-wrapper{
+                .items{
+                    ul{
+                        li{
+                            color: $color-text-200 !important;
+                            span{
+                                color: $color-text-200 !important;
+                            }
+                        }
+                    }
+                }
+                .head-title{
+                    i{
+                        &.icon-back{
+                            color: $color-text-200;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sub-title{
+       color: $color-text-200;
+    }
+    .terms-title{
+        color: $color-text-100;
+    }
+    .li-terms{
+        color: $color-text-200;
+    }
+    .box-container{
+        .box-thumb{
+            background-color: $main-background-100 !important;
+            border-color: $border-color !important;
+
+        }
+        .box{
+            background-color: $main-background-100;
+            border-color: $border-color;
+            .box-details{
+                .title,.name{
+                    color: $color-text-100;
+                }
+            }
+            &.vector{
+                .box-thumb{
+                    .inner{
+                        background-color: $main-background-200 !important;
+                    }
+                    &:hover{
+                        background-color: $main-background-300 !important;
+                    }
+                }
+            }
+            &.active{
+                &.vector{
+                    .box-thumb{
+                        background-color: $main-background-300 !important;
+                    }
+                }
+                background-color: $border-color;
+                border: solid 1px $border-color;
+            }
+        }
+    }
+    .folder-container{
+        .folder-main{
+            background-color: $main-background-100;
+            border-color: $border-color;
+            .folder-hold{
+                background-color: $main-background-100;
+                border-color: $border-color;
+                .folder-hold-left{
+                    &::after{
+                        background-color: #2f353a;
+                    }
+                }
+                .folder-hold-left{
+                    border-color: $border-color;
+                    background-color: $main-background-100;
+                }
+            }
+            &:hover{
+                background-color: $border-color !important;
+                border-color: $border-color !important;
+                .folder-hold{
+                    background-color: $border-color !important;
+                    border-color: $border-color !important;
+               }
+               .folder-hold-left{
+                    border-color: $border-color !important;
+                    background-color: $border-color !important;
+                    &::after{
+                        background-color: #2f353a !important;
+                    }
+                }
+            }
+            &.active{
+                background-color: $border-color !important;
+                border-color: $border-color !important;
+                .folder-hold{
+                    background-color: $border-color !important;
+                    border-color: $border-color !important;
+               }
+               .folder-hold-left{
+                    border-color: $border-color !important;
+                    background-color: $border-color !important;
+                    &::after{
+                        background-color: #2f353a !important;
+                    }
+                }
+            }
+            &.dropzone-folder-active{
+               background-color: $folder-hover;
+               .folder-hold{
+                background-color:$folder-hover !important;
+                .folder-hold-left{
+                    background-color:$folder-hover !important;
+                }
+               }
+            }
+        }
+    }
+    .files{
+        .dropzone-files{
+            table{
+                thead{
+                    border-color: $border-color !important;
+                    background-color: $main-background-200 !important;
+                    tr{
+                        th{
+                            color: $color-text-100;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        &:hover{
+                            &:not(.no-hover),
+                            &.active:not(.no-active) {
+                                background-color: $main-background-300 !important;
+                            }
+                        }
+                        td{
+                            border-color: $border-color !important;
+                            .text{
+                                color: $color-text-200 !important;
+                            } 
+                            &.check-box{
+                                .bp3-icon {
+                                   opacity: .6; 
+                                }
+                            }
+                        }
+                        &.dropzone-folder{
+                           &.dropzone-folder-active{
+                             background-color: $dropzone-hover;
+                           }
+                        }
+                    }
+                }
+            }
+            &.dropzone-active{
+                background-color: $dropzone-hover;
+            }
+            &::before{
+                background-color: $main-background-100;
+                color: $color-text-100;
+            }
+        }
+        .dropzone-grid{
+            &.dropzone-active{
+                background-color: $dropzone-hover;
+            }
+            &::before{
+                background-color: $main-background-100;
+                color: $color-text-100;
+            }
+        }
+    }
+    .bp3-menu{
+        background: #2a3845;
+        svg{
+            fill: $icon-color;
+        }
+    }
+    .app-information{
+        background-color: $main-background-100 !important;
+        border-color: $border-color !important;
+        .thumb.vector{
+            background-color: $main-background-200;
+        }
+        .inner{
+            background-color: $main-background-200 !important;
+            border-color: $border-color !important;
+            .info{
+                table{
+                    td{
+                        color: $color-text-200;
+                    }
+                }
+                .info-btn{
+                    background-color: $main-background-200;
+                    border-color: $border-color;
+                }
+                table{
+                    .line{
+                        background-color: $border-color;
+                    }
+                }
+            }
+            .header{
+                background-color: $main-background-100;
+                .comment-title{
+                    color:$color-text-100;
+                }
+            }
+            .new-comment{
+                .owner-details{
+                    h4{
+                        color: $color-text-100;
+                    }
+                }
+                .new-comment-input{
+                    border-color: $border-color;
+                }
+                .owner-name{
+                    color: $color-text-200;
+                }
+            }
+            .comment-list{
+                border-color: $border-color;
+                .comment-card{
+                    border-color: $border-color;
+                    .comment-username{
+                        color: $color-text-100;
+                    }
+                    .comment-body,.comment-date{
+                        color: $color-text-200;
+                    }
+                }
+            }
+        }
+    }
+    .bp3-heading{
+        color: $color-text-100;
+    }
+
+    .share-modal{
+        .bp3-dialog-body{
+            .share-button-container{
+                .share-button{
+                    border-color: $main-background-400 !important;  
+                    color: $color-text-200 !important;
+                }
+                .file-name{
+                    color: $color-text-100 !important;
+                }
+            }
+            .bp3-label{
+                color: $color-text-200 !important;
+            }
+            .react-tagsinput{
+                border-color: $main-background-400;
+                background-color: $main-background-300;
+                input{
+                    background-color: transparent !important;
+                }
+                .react-tagsinput-tag{
+                    background-color: $main-background-400;
+                    border-color: $border-color;
+                    color: $color-text-100;
+                }
+            }
+        }
+        .jdtrp{
+            div{
+                &.bp3-form-content{
+                    input{
+                        border-color: $main-background-400;
+                        background-color: $main-background-300 !important;
+                    }
+                }
+            }
+        }
+        .bp3-control{
+            color: $color-text-200 !important;
+        }
+        .previous-accesses {
+            .tag{
+                background-color: $main-background-300;
+                .tag-title{
+                    color: $primary-color-500;
+                }
+            }
+        }
+    }
+
+    .calendarContainer{
+        background-color: $main-background-200;
+        .heading{
+            .title{
+                color: $color-text-100;
+                border-color: $border-color;
+                &:hover{
+                    background-color: $main-background-300;
+                }
+            }
+            > button{
+                &:hover{
+                    background-color: $main-background-300;
+                }
+            }
+        }
+        .dayWrapper{
+            button{
+                color: $color-text-100;
+                &:hover{
+                    &:not(.selected){
+                        background-color: $main-background-300
+                    }
+
+                }
+            }
+            button[disabled]{
+                background-color: $disabledColor;
+                &:hover{
+                    background-color: $disabledColor;
+                }
+            }
+        }
+        .monthsList{
+            button{
+                color: $color-text-100;
+                border-color: $border-color;
+                background-color: $main-background-200;
+                &:hover{
+                    background-color: $main-background-300;
+                }
+            }
+        }
+    }
+    .share-modal{
+        .shared-link-input{
+            .bp3-input{
+                border-color: $border-color;
+            }
+            .copy-to-clipord{
+                background-color: $main-background-300;
+                color: $color-text-200;
+                .link-text {
+                    color: $color-text-200;
+                }
+                &:hover{
+                    background-color: $main-background-400;
+                    color: $color-text-100;
+                }
+            }
+        }
+        .share-short-link[disabled]{
+            background-color: transparent;
+            color: $disabledTextColor;
+        }
+        .share-link-password{
+            color: $color-text-200;
+        }
+    }
+    .activity-list{
+        border-color: $main-background-400;
+        .activity-item{
+            background-color: $main-background-300;
+            border-color: $main-background-400;
+        }
+    }
+
+    .plans-dialog{
+        border-color: $border-color;
+        .wrapper-card{
+            .plan-card{
+                border-color: $border-color;
+                .plan-card-top-section{
+                    .plan-header{
+                        .plan-title{
+                            .title-top{
+                                color: $color-text-100;
+                            }
+                            .title-bottom{
+                                color: $color-text-200;
+                            }
+                        }
+                    }
+                    .plan-size{
+                        span{
+                            color: $color-text-100;
+                        }
+                        
+                    }
+                }
+                .plan-feature-list{
+                    .list-title{
+                        span{
+                            color: $color-text-200;
+                        }
+                    }
+                    .list-value{
+                        span{
+                            color: $color-text-100;
+                        }
+                    }
+                }
+            }
+            .plan-card-bottom-section{
+                background-color: $main-background-400 !important;
+                .price-time{
+                    span{
+                        color: $color-text-200;
+                    }
+                }
+            }
+        }
+    }
+    .main {
+        background-color: $main-background-300;
+        .main-header{
+            background-color: $main-background-100;
+            border-color: $border-color;
+            .icon-btn{
+                .username{
+                    color: $color-text-100;
+                }
+            }
+            .change-mode{
+                display: flex;
+                float: left;
+                padding: 5px 5px;
+                width: 20px;
+                height: 20px;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                margin-top: 15px;
+            }
+        }
+        .file-preview-container{
+            .app-file-preview{
+                background-color: $main-background-200;
+            }
+            .content{
+                .content-wrapper{
+                    background-color: $folder-hover !important;
+                    .thumb{
+                        &.vector{
+                            background-color: transparent !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .side-info{
+        .info{
+            .user-info{
+                .progress-bar{
+                    background-color: $disabledColor;
+                }
+                span{
+                    color: $color-text-100;
+                }
+                .storage-value{
+                    .pull-left{
+                        color: #ababab;
+                    }
+                }
+            }
+        }
+        .change-plan{
+          &.deactivated{
+            color: $disabledTextColor;
+          }
+        }
+    }
+    .advance-search-dialog{
+        background-color: $main-background-100 !important;
+        &.bp3-dialog{
+            .bp3-dialog-body{
+                .bp3-form-group{
+                    .bp3-form-content{
+                        .bp3-input{
+                            border-color: $border-color;
+                            background-color: $main-background-100 !important;
+                        }
+                    }
+                }
+                .bp3-form-group{
+                        .bp3-form-content{
+                            .jdtrp {
+                                div > input{
+                                    border-color: $border-color;
+                                    background-color: $main-background-100 !important;
+                                }
+                            }
+                            .bp3-select{
+                                select{
+                                    border-color: $border-color;
+                                }
+                            }
+                            .file-size{
+                                .bp3-html-select{
+                                    select{
+                                        border-color: $border-color;
+                                    }
+                                }
+                                > span{
+                                    color: $main-background-200;
+                                }
+                            }
+                        }
+                }
+            }
+        }
+    }
+    .file-preview-container {
+        background-color: $main-background-200 !important;
+    }
+    .audio-player{
+        background-color: $main-background-300;
+        .player-container{
+            background-color: $main-background-200;
+            border-color: $main-background-300;
+            box-shadow: 0 0px 10px -5px #000000;
+            .audio-name{
+                .audio-player-close{
+                    border-color: $main-background-300;
+                    background-color: $main-background-300;
+                }
+            }
+        }
+        .play-list{
+            background-color: $main-background-300;
+            border-color: $main-background-400;
+        }
+    }
+    .error-boundry{
+        p{
+            color: $color-text-100 !important;
+        }
+    }
+    .upload-box{
+        .files-list{
+            .inner{
+                table{
+                    tr{
+                        border-color: $border-color;
+                    }
+                }
+            }
+        }
+    }
+}

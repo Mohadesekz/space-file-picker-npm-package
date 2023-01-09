@@ -1,0 +1,74 @@
+.files.password-required {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .small-devices {
+    display: none;
+  }
+  .dropzone-files {
+    display: none;
+  }
+}
+.files.forbidden {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .small-devices {
+    display: none;
+  }
+  .dropzone-files {
+    display: none;
+  }
+}
+.password-form {
+  margin: auto;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  img {
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .password-title {
+    font-family: 'yekanbakh', 'roboto';
+    font-size: 14px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #262626;
+    &.error {
+      color: red;
+    }
+  }
+  .bp3-form-group {
+    .bp3-form-content {
+      label {
+        color: #455a64;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+  }
+  .button-container {
+    text-align: left;
+    margin-top: 5px;
+    .bp3-button {
+      width: 50%;
+      height: 35px;
+      border-radius: 2px;
+      background-color: #2979ff;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.app-header .app-logo {
+  width: 115px;
+  height: 44px;
+  margin: 9px 20px 15px 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  padding: 0 5px;
+}
+@media screen and (max-width: 768px) {
+  .app-header .app-logo {
+    width: 45px;
+    height: 63px;
+    margin: 0px 20px;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.app-header .app-logo svg {
+  float: right;
+  margin-left: 10px;
+  font-size: 17px;
+  color: #1e88e5;
+}
+
+.app-header .app-logo h2 {
+  color: #1e88e5;
+  font-size: 17px;
+  font-weight: bold;
+}
+.app-header .app-logo a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+.app-header .app-logo a:hover {
+  color: #1e88e5;
+  text-decoration: none;
+}
+@media screen and (max-width: 500px) {
+  .app-header .app-logo h2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 830px) {
+  .app-header .app-logo h2 {
+    display: none;
+  }
+}

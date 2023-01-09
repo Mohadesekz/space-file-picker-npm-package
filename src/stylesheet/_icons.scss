@@ -1,0 +1,121 @@
+@font-face {
+	font-family: '#{$icomoon-font-family}';
+	src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?anjq9n');
+	src: url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?anjq9n#iefix') format('embedded-opentype'),
+	url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?anjq9n') format('truetype'),
+	url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?anjq9n') format('woff'),
+	url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?anjq9n##{$icomoon-font-family}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: '#{$icomoon-font-family}' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-info {
+	&::before {
+		content: $icon-info;
+	}
+}
+
+.icon-menu {
+	&::before {
+		content: $icon-menu;
+	}
+}
+
+.icon-thumb-view {
+	&::before {
+		content: $icon-thumb-view;
+	}
+}
+
+.icon-list-view {
+	&::before {
+		content: $icon-list-view;
+	}
+}
+
+.icon-back {
+	&::before {
+		content: $icon-back;
+	}
+}
+
+.icon-to-left {
+	&::before {
+		content: $icon-to-left;
+	}
+}
+
+.icon-file {
+	&::before {
+		content: $icon-file;
+	}
+}
+
+.icon-folder {
+	&::before {
+		content: $icon-folder;
+	}
+}
+
+.icon-pin {
+	&::before {
+		content: $icon-pin;
+	}
+}
+
+.icon-close {
+	&::before {
+		content: $icon-close;
+	}
+}
+
+.icon-star {
+	&::before {
+		content: $icon-star;
+	}
+}
+
+.icon-trash {
+	&::before {
+		content: $icon-trash;
+	}
+}
+
+.icon-box {
+	&::before {
+		content: $icon-box;
+	}
+}
+
+.icon-time-circle {
+	&::before {
+		content: $icon-time-circle;
+	}
+}
+
+.icon-upload {
+	&::before {
+		content: $icon-upload;
+	}
+}
+
+.icon-personal-folder {
+	&::before {
+		content: $icon-personal-folder;
+	}
+}

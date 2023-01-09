@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ir.pod.podspace",
+      "sha256_cert_fingerprints": [
+        "B8:E3:8D:82:07:03:89:8F:AE:AD:68:1C:31:45:CC:04:27:DF:35:B1:2E:B6:F0:7F:7B:6D:6D:47:D1:FE:6B:A2",
+        "94:18:9D:DA:D6:F5:16:5E:15:B1:7A:FF:5A:28:4A:67:61:FC:6C:C3:7B:A5:EB:E8:6B:7A:49:B2:19:B2:E2:54"
+      ]
+    }
+  }
+]

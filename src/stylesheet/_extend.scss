@@ -1,0 +1,197 @@
+%scrollbar {
+  /* width */
+  @media (pointer: fine) {
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: lighten(#c1c1c1, 15%);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05), inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: darken(#c1c1c1, 10%);
+    }
+  }
+}
+
+.thumb {
+  margin-top: 15px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  margin-bottom: 15px;
+
+  img {
+    width: 100%;
+    min-width: 100%;
+    object-fit: contain;
+    border-radius: 2px;
+    height: 200px;
+    min-height: 200px;
+    // background-image: url(../assets/images/docs.svg);
+    filter: grayscale(0.1);
+    border-radius: 2px;
+    // background-color: #f5f7f8;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+    cursor: pointer;
+  }
+
+  &.vector {
+    filter: grayscale(0.1);
+    height: 200px;
+    border-radius: 2px;
+    background-color: #f5f7f8;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+
+    &.file {
+      background-image: url(../assets/images/docs.svg);
+    }
+
+    &.folder {
+      background-image: url(../assets/images/folder.svg);
+    }
+
+    $filesType: docx, doc, xls, xlsx, gif, jpg, jpeg, mkv, ogv, mp3, mp4, pdf, png, rar, txt,
+      unknown, zip, mov, webm;
+
+    @each $fileType in $filesType {
+      &.file-#{$fileType} {
+        background-image: url('../assets/images/#{$fileType}.png');
+      }
+    }
+
+    &.folder {
+      background-image: url('../assets/images/folder.svg');
+    }
+  }
+}
+
+/////////////////////////////////////////////image viewer
+.react-viewer {
+  .react-viewer-close {
+    // background-color: #49b8ff;
+    // border-radius: 50%;
+    // right: unset !important;
+    // left: 22px !important;
+    border-radius: unset;
+    width: 33px;
+    height: 33px;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0;
+    opacity: 0.8;
+    i {
+      left: auto;
+      top: 7px;
+      right: 10px;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  }
+
+  .react-viewer-btn {
+    top: 15px;
+    right: 12px;
+  }
+
+  .react-viewer-canvas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: auto;
+      margin-bottom: auto;
+      margin-top: 4vh;
+    }
+  }
+
+  .react-viewer-toolbar {
+    text-align: center;
+    direction: ltr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // flex-direction: column;
+    position: fixed;
+    top: 15px;
+    right: 50px;
+    height: auto;
+
+    .react-viewer-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: unset;
+      width: 33px;
+      height: 33px;
+      background-color: rgba(0, 0, 0, 0);
+      margin: 0;
+      opacity: 0.8;
+      .react-viewer-icon {
+        margin-right: 0;
+        margin-top: 0;
+      }
+    }
+    .react-viewer-btn[data-key='next'] {
+      position: fixed;
+      top: 63px;
+      height: calc(100% - 118px);
+      color: white;
+      opacity: 0.8;
+      i {
+        font-size: 16px;
+      }
+    }
+    .react-viewer-btn[data-key='prev'] {
+      position: fixed;
+      top: 63px;
+      height: calc(100% - 118px);
+      right: calc(100% - 40px);
+      color: white;
+      opacity: 0.8;
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .react-viewer-footer {
+    z-index: 1010 !important;
+    .react-viewer-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .react-viewer-list {
+        direction: ltr;
+        margin: auto;
+        padding-bottom: 5px;
+        li {
+          width: 60px;
+          border: 2px solid transparent;
+          &.active {
+            border-color: #49b8ff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.react-viewer-mask {
+  background-color: #373737 !important;
+  opacity: 0.9;
+}

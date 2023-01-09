@@ -1,0 +1,65 @@
+.app-header {
+  height: 63px;
+  border-bottom: 1px solid #e7e9ec;
+  background-color: #fff;
+
+  .app-nav {
+    @media screen and (max-width: 820px) {
+      margin-right: 74px;
+    }
+
+    margin-right: 220px;
+    padding: 13px 0 20px;
+    .change-mode {
+      display: flex;
+      float: left;
+      padding: 5px 5px;
+      width: 20px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-top: 3px;
+    }
+  }
+  .icon-btn {
+    padding: 10px;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: flex;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+  .toggle-menu {
+    display: none;
+  }
+  @media screen and (max-width: 600px) {
+    .app-logo {
+      display: none;
+    }
+    .app-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 0;
+      align-items: center;
+      padding: 15px 10px;
+      .toggle-menu {
+        h1 {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 10px 0 0;
+        }
+      }
+    }
+    .user-settings {
+      display: none;
+    }
+    .toggle-menu {
+      display: inherit;
+      .icon-menu {
+        cursor: pointer;
+      }
+    }
+  }
+}

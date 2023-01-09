@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__print" width="17.236" height="17.27" viewBox="0 0 17.236 17.27">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#78909c}
+        </style>
+    </defs>
+    <path id="prefix__Path_1353" d="M99.766 3.339V2.53A2.533 2.533 0 0 0 97.236 0H91.03a2.533 2.533 0 0 0-2.53 2.53v.81z" class="prefix__cls-1" data-name="Path 1353" transform="translate(-85.532)"/>
+    <path id="prefix__Path_1354" d="M118.5 319v5.5a1.012 1.012 0 0 0 1.012 1.012h7.218a1.012 1.012 0 0 0 1.012-1.012V319zm5.97 4.318h-2.7a.506.506 0 0 1 0-1.012h2.7a.506.506 0 1 1 0 1.012zm0-2.159h-2.7a.506.506 0 0 1 0-1.012h2.7a.506.506 0 1 1 0 1.012z" class="prefix__cls-1" data-name="Path 1354" transform="translate(-114.52 -308.24)"/>
+    <path id="prefix__Path_1355" d="M15.206 129H3.03a2.533 2.533 0 0 0-2.53 2.53v4.048a2.533 2.533 0 0 0 2.53 2.53h.438v-2.7h-.3a.506.506 0 1 1 0-1.012h11.87a.506.506 0 1 1 0 1.012h-.3v2.7h.472a2.533 2.533 0 0 0 2.53-2.53v-4.048a2.533 2.533 0 0 0-2.534-2.53zm-10.422 3.171H3.165a.506.506 0 1 1 0-1.012h1.619a.506.506 0 1 1 0 1.012z" class="prefix__cls-1" data-name="Path 1355" transform="translate(-.5 -124.649)"/>
+</svg>

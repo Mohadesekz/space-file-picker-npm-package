@@ -1,0 +1,221 @@
+/* .upload-box .files-list .inner {
+  width 
+} */
+@media (pointer: fine) {
+  /* .upload-box .files-list .inner {
+      Track
+      Handle
+      Handle on hover
+     } */
+  .upload-box .files-list .inner::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .upload-box .files-list .inner::-webkit-scrollbar-track {
+    background: #e7e7e7;
+  }
+  .upload-box .files-list .inner::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05), inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+  }
+  .upload-box .files-list .inner::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+}
+
+.upload-box {
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  width: 360px;
+  padding: 0 !important;
+  font-size: 13px;
+  user-select: none;
+  animation: enter 400ms;
+  z-index: 10000;
+}
+.upload-box.react-draggable-dragging {
+  transition: none !important;
+}
+.upload-box.close .header {
+  border-radius: 3px;
+}
+.upload-box.close .files-list {
+  display: none;
+}
+.upload-box .header {
+  padding: 11px 15px 10px;
+  background-color: #353535;
+  color: #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-left: -1px;
+  margin-right: -1px;
+  cursor: default;
+}
+.upload-box .header::after {
+  display: table;
+  clear: both;
+  content: ' ';
+}
+.upload-box .header .shape {
+  position: absolute;
+  top: -25%;
+  right: 0%;
+  height: 100px;
+  width: 40px;
+  transform: translateX(-50%) translateY(0%) rotate(-90deg);
+}
+.upload-box .header path {
+  stroke: #aaa;
+  fill: #ddd;
+}
+.upload-box .header line {
+  stroke: #444;
+}
+.upload-box .header .pull-left span.bp3-icon {
+  position: relative;
+  top: 3px;
+  margin-right: 15px;
+  opacity: 0.8;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.upload-box .header .pull-left span.bp3-icon:hover,
+.upload-box .header .pull-left span.bp3-icon:focus {
+  opacity: 1;
+}
+.upload-box .header .pull-left span.bp3-icon.bp3-icon-minimize,
+.upload-box .header .pull-left span.bp3-icon.bp3-icon-maximize {
+  top: 2px;
+}
+.upload-box .files-list {
+  display: block;
+}
+.upload-box .files-list .sub-header {
+  border-bottom: 1px solid #ededed;
+  background-color: #f5f5f5;
+  padding: 8px 13px;
+  font-size: 12px;
+  cursor: default;
+}
+.upload-box .files-list .sub-header::after {
+  display: table;
+  clear: both;
+  content: ' ';
+}
+.upload-box .files-list .inner {
+  max-height: 225px;
+  font-size: 13px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.upload-box .files-list .inner table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.upload-box .files-list .inner table tr.item {
+  border-bottom: 1px #ededed solid;
+  max-height: 45px;
+  min-height: 45px;
+  height: 45px;
+}
+.upload-box .files-list .inner table tr.item:last-child {
+  border: 0;
+}
+.upload-box .files-list .inner table tr.item .file-name {
+  width: 265px;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  direction: ltr;
+}
+.upload-box .files-list .inner table tr.item td:first-child {
+  padding-top: 2px;
+  padding-left: 12px;
+  width: 25px;
+}
+.upload-box .files-list .inner table tr.item td:last-child {
+  width: 60px;
+  padding-top: 11px;
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon {
+  position: relative;
+  left: -3px;
+  top: 1px;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-remove {
+  right: 30px;
+  color: #d5d9dc;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-remove:hover {
+  color: #f74f4f;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-cross {
+  left: -30px;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-tick {
+  color: #008000;
+  right: 30px;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-pause {
+  position: absolute;
+  left: 40px;
+  top: 14px;
+  color: #bcc1c6;
+  padding: 0;
+  border-radius: 50%;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-pause:hover {
+  color: #f74f4f;
+}
+
+@-moz-document url-prefix() {
+  .upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-pause {
+    left: 38px;
+  }
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-play {
+  position: absolute;
+  left: 41px;
+  top: 14px;
+  color: #bcc1c6;
+  padding: 0;
+  border-radius: 50%;
+}
+.upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-play:hover {
+  color: #008000;
+}
+
+@-moz-document url-prefix() {
+  .upload-box .files-list .inner table tr.item td .bp3-icon.bp3-icon-play {
+    left: 39px;
+  }
+}
+.upload-box .files-list .inner table tr.item td .bp3-spinner {
+  zoom: 0.6;
+  position: relative;
+  top: 2px;
+  left: 30px;
+}
+
+@-moz-document url-prefix() {
+  .upload-box .files-list .inner table tr.item td .bp3-spinner {
+    position: absolute;
+    top: 5px;
+    left: 35px;
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

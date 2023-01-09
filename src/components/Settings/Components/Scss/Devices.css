@@ -1,0 +1,21 @@
+.user-devices .spinner-container {
+  width: 155px; }
+
+.user-devices .device-name {
+  margin: 0;
+  display: flex; }
+  .user-devices .device-name .name {
+    margin-right: 5px; }
+
+.device-info {
+  display: flex;
+  max-width: 300px; }
+  .device-info .field {
+    flex: 1; }
+  .device-info .device-name {
+    margin: 0;
+    display: flex; }
+    .device-info .device-name span.name {
+      margin-right: 10px;
+      font-weight: bold;
+      color: #78909c; }

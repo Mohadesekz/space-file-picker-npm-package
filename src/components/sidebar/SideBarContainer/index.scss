@@ -1,0 +1,91 @@
+@import '../../../stylesheet/variables';
+
+.app-sidebar {
+  position: fixed;
+  width: 180px;
+  height: calc(100% - 74px);
+  border-left: 1px solid $borderColor;
+  border-top: 1px solid $borderColor;
+  bottom: 0;
+  overflow: auto;
+  padding: 0 20px 10px;
+  direction: ltr;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 600px) {
+    width: 66%;
+    max-width: 245px;
+  }
+  .main-sidebar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @media screen and (max-width: 600px) {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+    }
+    .side-size {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (max-width: 979px) {
+    right: -285px;
+    transition: right 0.4s;
+    z-index: 20;
+
+    &.show {
+      right: 0;
+      .upload-button {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 100%;
+    padding-bottom: 0;
+  }
+
+  > div {
+    direction: rtl;
+  }
+
+  .btnDownloadApp {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-weight: normal;
+    box-sizing: border-box;
+    color: $primary-color-500;
+    border-radius: 4px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 20px;
+
+    img {
+      width: 25px;
+      color: $primary-color-500;
+      vertical-align: middle;
+      margin-left: 5px;
+      position: relative;
+      bottom: 2px;
+    }
+  }
+
+  .icon-close {
+    display: none;
+    cursor: pointer;
+    @media screen and (max-width: 979px) {
+      display: inline-block;
+    }
+    svg {
+      margin-left: 0;
+      margin-top: 5px;
+      margin-right: auto;
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.cropp-main-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .cropp-main-container .cropp-wrapper {
+    display: inline-block;
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 3px; }
+    .cropp-main-container .cropp-wrapper .cropper-container {
+      margin-top: -75px; }
+  .cropp-main-container .action-buttons {
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .cropp-main-container .action-buttons .cropp-btn {
+      float: right;
+      min-width: 150px;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 0 5px; }
+  .cropp-main-container .cropp-preview {
+    height: 300px;
+    border-radius: 3px;
+    position: relative;
+    width: 100%; }
+    .cropp-main-container .cropp-preview .placeHolder {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      position: absolute;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .cropp-main-container .cropp-preview .placeHolder svg {
+        width: 200px;
+        height: 200px; }
+
+.cropper-view-box img {
+  opacity: 0; }

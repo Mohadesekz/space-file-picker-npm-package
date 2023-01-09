@@ -1,0 +1,48 @@
+.ftp-container {
+  margin-top: 35px; }
+  .ftp-container .ftp-form {
+    display: flex; }
+    .ftp-container .ftp-form .description {
+      display: inline-block;
+      width: auto;
+      margin-left: 45px; }
+    .ftp-container .ftp-form .token-key {
+      font-size: 14px;
+      color: #78909c;
+      margin: 0 0 0 45px; }
+    .ftp-container .ftp-form .expires-date {
+      font-size: 13px;
+      color: #78909c;
+      margin: 0 0 0 35px;
+      min-width: 150px; }
+      .ftp-container .ftp-form .expires-date span {
+        min-width: 100%;
+        display: inline-block;
+        font-size: 14px; }
+    .ftp-container .ftp-form .actions {
+      display: flex;
+      align-items: center;
+      width: 300px;
+      justify-content: space-around; }
+      .ftp-container .ftp-form .actions .default-outline {
+        min-height: 40px;
+        color: #90a4ae; }
+        .ftp-container .ftp-form .actions .default-outline .bp3-button-text {
+          display: flex;
+          align-items: center; }
+          .ftp-container .ftp-form .actions .default-outline .bp3-button-text svg {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px; }
+          .ftp-container .ftp-form .actions .default-outline .bp3-button-text .bp3-icon {
+            color: #90a4ae;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-left: 10px; }
+            .ftp-container .ftp-form .actions .default-outline .bp3-button-text .bp3-icon svg {
+              display: inline-block;
+              width: 15px;
+              height: 15px;
+              margin: 0 5px; }

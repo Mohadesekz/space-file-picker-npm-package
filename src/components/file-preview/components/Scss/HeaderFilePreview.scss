@@ -1,0 +1,76 @@
+.header-preview{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    .header-section{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        &.actions{
+           padding-left: 20px;
+        }
+        .icon-btn{
+            padding: 0 5px;
+            margin: 0 5px;
+            align-items: center;
+            cursor: pointer;
+            .bp3-icon-people{
+                padding: 14px 0;
+            }
+            img{
+                width: auto;
+            }
+            &.toggle-sidebar{
+                display: none;
+            }
+            @media(max-width:768px) {
+                &.toggle-sidebar{
+                    display: inherit;
+                }
+            }
+        }
+        .bp3-popover-target{
+            display: flex;
+        }
+        .edit-btn{
+            width: 145px;
+            height: 25px;
+            border-radius: 2px;
+            cursor: pointer;
+            background-color: #78909c;
+            margin: auto;
+            .text-button{
+                position: relative;
+                font-size: 11px;
+                font-weight: 300;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+                text-align: right;
+                margin: 4px 15px 5px 0;
+                color: #fff;
+                &:before{
+                    content: '';
+                    position: absolute;
+                    left: 30px;
+                    height: 11px;
+                    width: 1px;
+                    top: 2px;
+                    background-color: #ffffff7a;
+                }
+                &:after{
+                    content: '';
+                    width: 0px;
+                    height: 0px;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-top: 6px solid #ffffff;
+                    position: absolute;
+                    top: 5px;
+                    left: 10px;
+                }
+            }
+        }
+    }
+}

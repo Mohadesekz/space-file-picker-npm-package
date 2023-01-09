@@ -1,0 +1,20 @@
+.account-settings .selector-container {
+  display: flex;
+  margin: 15px 0; }
+  .account-settings .selector-container .options-container {
+    display: flex;
+    width: 100%; }
+    .account-settings .selector-container .options-container .option {
+      display: flex;
+      width: auto;
+      align-items: center;
+      cursor: pointer;
+      margin: 0 15px;
+      min-width: 135px; }
+      .account-settings .selector-container .options-container .option input {
+        width: 15px;
+        height: 15px;
+        cursor: pointer; }
+      .account-settings .selector-container .options-container .option .bp3-control-indicator {
+        font-size: 14px;
+        margin-right: 15px; }

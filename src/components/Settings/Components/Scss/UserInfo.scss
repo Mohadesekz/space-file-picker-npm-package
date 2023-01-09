@@ -1,0 +1,120 @@
+@import '../../../../stylesheet/variables';
+
+.team-wrapper{
+    .user-form{
+        margin-top: 35px;
+        padding: 0 15px;
+        .description{
+            display: flex;
+            font-size: 13px;
+            color: $defaultTextColor;
+            align-items: center;
+            button{
+                color: $primary-color-500;
+                display: flex;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                .button-title{
+                    color: $primary-color-500;
+                    font-size: 14;
+                }
+                color: $primary-color-500;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .new-user{
+                .bp3-icon{
+                    color:$primary-color-500;
+                    margin-left: 10px;
+                }
+            }
+        }
+        form{
+            margin: 15px 0;
+            display: flex;
+            .bp3-form-group{
+                flex-direction: row;
+                margin-left: 35px;
+                margin-bottom: 0;
+                label{
+                    margin-left: 10px;
+                    line-height: 2;
+                }
+                .bp3-input{
+                    min-width: 150px;
+                    height: 35px;
+                }
+                @media screen and (max-width: 768px) {
+                    margin-left: 0;
+                    margin-bottom: 10px;
+                    flex-direction: column;
+                }
+            }
+            .add-user{
+                @media screen and (max-width: 768px) {
+                    margin: 10px 0;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+            }
+        }  
+.team-detail{
+    display: flex;
+    margin-bottom: 10px;
+    .folder-link{
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 10px;
+        font-weight: bold;
+        color: $primary-color-500;
+        @media screen and (max-width: 768px) {
+            margin: 10px 0;
+        }
+    }     
+    small{
+        display: inline-block;
+        font-size: 11px;
+    }
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+        .error{
+            label{
+              display: inline-block;
+              color: $danger-color-500;
+              font-size: 13px;
+              padding: 10px 0;
+            }
+        }
+    }
+    .user-info{
+        display: flex;
+        .avatar{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            background-image: url(/static/media/default-avatar.5097b024.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .username{
+            line-height: 2;
+        }
+    }
+    .table-wrapper{
+        width: 100%;
+        max-width: 750px;
+        height: 300px;
+        overflow: auto;
+    }
+}

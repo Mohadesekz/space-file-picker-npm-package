@@ -1,0 +1,36 @@
+@import '../../../../stylesheet/variables';
+
+.user-devices{
+    .spinner-container{
+        width: 155px;
+    }
+    .device-name{
+        margin: 0;
+        display: flex;
+        .name{
+            margin-right: 5px;
+        }
+    }
+    .table-wrapper{
+        overflow-x: auto;
+    }
+}
+
+.device-info{
+    display: flex;
+    max-width: 300px;
+    .field{
+      flex: 1;
+    } 
+    .device-name{
+        margin: 0;
+        display: flex;
+        span{
+            &.name{
+                margin-right: 10px;
+                font-weight: bold;
+                color: $defaultColor;
+            }
+        }
+    }
+}

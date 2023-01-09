@@ -1,0 +1,25 @@
+.download-process{
+  position: fixed;
+  left: 30px;
+  bottom: 15px;
+  z-index: 100;
+  .prepare-for-download{
+    position: absolute;
+    left: 5px;
+    bottom: 15px;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    animation: blinker 1s linear infinite;
+  }
+  .bp3-no-spin > .bp3-spinner-animation > svg{
+    max-width: 30px;
+  }
+}
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}

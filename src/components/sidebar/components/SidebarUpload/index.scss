@@ -1,0 +1,63 @@
+@import '../../../../stylesheet/variables';
+
+.upload-button {
+  position: relative;
+  width: 180px;
+  @media screen and (max-width: 978px) {
+    display: inline-block;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    bottom: 15px;
+  }
+  button {
+    border: solid 1px $primary-color-500;
+    border-radius: 4px;
+    background-color: $primary-color-500;
+    padding: 8px 15px;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.4s;
+    @media screen and (max-width: 978px) {
+      height: 50px;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      opacity: 1;
+      z-index: 1;
+    }
+    .plus {
+      color: #fff;
+      position: relative;
+      top: 3px;
+    }
+    &.disable {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    i.icon-upload {
+      font-size: 20px;
+      top: 3px;
+      position: relative;
+    }
+    p {
+      margin: 0;
+      padding: 4px 0;
+      @media screen and (max-width: 978px) {
+        display: none;
+      }
+    }
+  }
+}

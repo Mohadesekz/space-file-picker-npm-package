@@ -1,0 +1,125 @@
+$colorMenu: #546e7a;
+$colorActiveMenu: #1250f3;
+
+.side-links {
+  margin: 0 0 15px 0;
+  margin-right: -20px;
+  @media screen and (min-width: 768px) {
+    margin-top: 15px;
+  }
+  .icon-close {
+    margin: -10px 7px;
+    position: absolute;
+    color: $colorMenu;
+    font-size: 14px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+    @media screen and (max-width: 979px) {
+      display: inline-block;
+    }
+  }
+
+  ul {
+    list-style: none;
+    li {
+      color: $colorMenu;
+      font-size: 13px;
+      transition: all 0.1s;
+      padding-right: 20px;
+      border-bottom-left-radius: 35px;
+      border-top-left-radius: 35px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      height: 40px;
+      a {
+        display: flex;
+        align-items: center;
+        color: $colorMenu;
+        text-decoration: none;
+        height: 40px;
+        width: 100%;
+        &:hover {
+          color: lighten($colorMenu, 10%);
+        }
+
+        &.active {
+          color: $colorActiveMenu;
+          cursor: default;
+
+          &:hover {
+            color: $colorActiveMenu;
+          }
+
+          svg,
+          path,
+          g {
+            fill: $colorActiveMenu;
+          }
+        }
+
+        i {
+          padding-left: 10px;
+          position: relative;
+          display: inline-block;
+          width: 15px;
+          text-align: center;
+          &.icon-box {
+            font-size: 16px;
+          }
+
+          &.icon-time-circle {
+            font-size: 15px;
+          }
+
+          &.icon-personal-folder {
+            font-size: 13px;
+          }
+
+          &.icon-star {
+            font-size: 15px;
+          }
+
+          &.icon-trash {
+            font-size: 13px;
+          }
+        }
+        svg {
+          padding-left: 10px;
+        }
+      }
+      svg,
+      path,
+      g {
+        fill: $colorMenu;
+      }
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15px;
+        padding-left: 10px;
+        color: $colorMenu;
+      }
+      &:hover {
+        svg,
+        path,
+        g {
+          fill: lighten($colorMenu, 10%);
+        }
+        .icon {
+          color: lighten($colorMenu, 10%);
+        }
+      }
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+    @media screen and (max-width: 600px) {
+      display: flex;
+    }
+  }
+}

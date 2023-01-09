@@ -1,0 +1,78 @@
+@font-face {
+	font-family: yekanbakh;
+	font-style: normal;
+	font-weight: bold;
+	src: url('#{$font-dir-path}yekanbakh/bold.eot');
+	src: url('#{$font-dir-path}yekanbakh/bold.eot?#iefix') format('embedded-opentype'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('#{$font-dir-path}yekanbakh/bold.woff') format('woff'),
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		url('#{$font-dir-path}yekanbakh/bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: yekanbakh;
+	font-style: normal;
+	font-weight: 300;
+	src: url('#{$font-dir-path}yekanbakh/light.eot');
+	src: url('#{$font-dir-path}yekanbakh/light.eot?#iefix') format('embedded-opentype'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('#{$font-dir-path}yekanbakh/light.woff') format('woff'),
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		url('#{$font-dir-path}yekanbakh/light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: yekanbakh;
+	font-style: normal;
+	font-weight: normal;
+	src: url('#{$font-dir-path}yekanbakh/regular.eot');
+	src: url('#{$font-dir-path}yekanbakh/regular.eot?#iefix') format('embedded-opentype'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('#{$font-dir-path}yekanbakh/regular.woff') format('woff'),
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		url('#{$font-dir-path}yekanbakh/regular.ttf') format('truetype');
+}
+
+/* Latin fonts (Roboto) */
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: bold;
+	src: url('#{$font-dir-path}roboto/eot/robotobold.eot');
+	src: url('#{$font-dir-path}roboto/eot/robotobold.eot?#iefix') format('embedded-opentype'),
+		/* IE6-8 */
+		url('#{$font-dir-path}roboto/woff2/robotobold.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('#{$font-dir-path}roboto/woff/robotobold.woff') format('woff'),
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		url('#{$font-dir-path}roboto/ttf/robotobold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: 300;
+	src: url('#{$font-dir-path}roboto/eot/robotolight.eot');
+	src: url('#{$font-dir-path}roboto/eot/robotolight.eot?#iefix') format('embedded-opentype'),
+		/* IE6-8 */
+		url('#{$font-dir-path}roboto/woff2/robotolight.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('#{$font-dir-path}roboto/woff/robotolight.woff') format('woff'),
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		url('#{$font-dir-path}roboto/ttf/robotolight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: roboto;
+	font-style: normal;
+	font-weight: normal;
+	src: url('#{$font-dir-path}roboto/eot/robotoregular.eot');
+	src: url('#{$font-dir-path}roboto/eot/robotoregular.eot?#iefix') format('embedded-opentype'),
+		/* IE6-8 */
+		url('#{$font-dir-path}roboto/woff2/robotoregular.woff2') format('woff2'),
+		/* FF39+,Chrome36+, Opera24+*/
+		url('#{$font-dir-path}roboto/woff/robotoregular.woff') format('woff'),
+		/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		url('#{$font-dir-path}roboto/ttf/robotoregular.ttf') format('truetype');
+}
