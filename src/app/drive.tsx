@@ -105,7 +105,7 @@ class PodSpace extends Component<IProps, IState> {
         ) : (
           <>
             <div className={`app ${this.props.mode ? '' : 'bp3-dark'}`} key={0}>
-              {/* <Header {...routerProps} menuToggle={this.menuToggle} /> */}
+              <Header {...routerProps} menuToggle={this.menuToggle} />
               {/* <AlertSwitchToApp /> */}
               <div className="app-intro">
                 {/* <section
@@ -140,7 +140,7 @@ class PodSpace extends Component<IProps, IState> {
                     />
                   ) : null}
                 </section>
-                {/* <section
+                <section
                   className={`app-information-overlay${this.state.sideBarIsOpen ? ' show' : ''}`}
                   onClick={this.infoSidebarToggle}
                 />
@@ -153,7 +153,7 @@ class PodSpace extends Component<IProps, IState> {
                       history={this.props.history}
                     />
                   ) : null}
-                </section> */}
+                </section>
               </div>
             </div>
             <UploadBox

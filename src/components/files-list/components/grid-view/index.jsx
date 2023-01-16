@@ -358,7 +358,7 @@ class GridView extends Component {
                 refreshFunction={this.props.onRefresh}
                 height={this.state.gridViewHeight}
               >
-                {window.location.pathname === '/my-space' &&
+                {/* {window.location.pathname === '/my-space' &&
                 !this.mobileAndTabletCheck &&
                 // Object.keys(recents || {}).length > 0 &&
                 this.props.breadcrumb.length === 0
@@ -405,7 +405,7 @@ class GridView extends Component {
                         )}
                       </div>,
                     ]
-                  : null}
+                  : null} */}
 
                 {window.location.pathname !== '/my-space' ||
                 (window.location.pathname === '/my-space' && (fileSize || folderSize)) ? (

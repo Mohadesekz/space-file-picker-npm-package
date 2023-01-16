@@ -413,7 +413,7 @@ class ListViewTable extends Component {
                 refreshFunction={this.props.onRefresh}
                 height={this.state.listViewHeight}
               >
-                {(!loading || body) &&
+                {/* {(!loading || body) &&
                 !this.mobileAndTabletCheck &&
                 // filter === 'mybox' &&
                 window.location.pathname === '/my-space' &&
@@ -463,7 +463,7 @@ class ListViewTable extends Component {
                         )}
                       </div>,
                     ]
-                  : null}
+                  : null} */}
                 <div
                   className={`file-list-container ${
                     !this.mobileAndTabletCheck &&

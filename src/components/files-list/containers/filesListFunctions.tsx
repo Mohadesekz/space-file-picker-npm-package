@@ -622,7 +622,7 @@ class FilesListFunctions extends Component<any, any> {
               />
             )}
 
-            {item &&
+            {/* {item &&
               !item.isBookmarked &&
               (!item.owner || localStorage.getItem('username') === item.owner?.username) &&
               (filterSelected.filter === 'favorite' || filterSelected.filter === 'mybox') && (
@@ -631,9 +631,9 @@ class FilesListFunctions extends Component<any, any> {
                   onClick={() => this.props.onBookmark()}
                   text={`نشانه‌گذاری`}
                 />
-              )}
+              )} */}
 
-            {item &&
+            {/* {item &&
               item.isBookmarked &&
               (!item.owner || localStorage.getItem('username') === item.owner?.username) &&
               (filterSelected.filter === 'favorite' || filterSelected.filter === 'mybox') && (
@@ -647,7 +647,7 @@ class FilesListFunctions extends Component<any, any> {
                   }
                   text={`حذف نشانه‌گذاری`}
                 />
-              )}
+              )} */}
 
             {item && (
               <MenuItem
@@ -669,9 +669,9 @@ class FilesListFunctions extends Component<any, any> {
               />
             )}
 
-            <Menu.Divider />
+            {/* <Menu.Divider /> */}
 
-            {!this.props.copy.isEmpty && shouldPasteOnSelectedFolder && (
+            {/* {!this.props.copy.isEmpty && shouldPasteOnSelectedFolder && (
               <MenuItem
                 icon="document-open"
                 onClick={() =>
@@ -686,9 +686,9 @@ class FilesListFunctions extends Component<any, any> {
                 }`}
                 label={`Paste ` + this.props.copy.items.length.toString()}
               />
-            )}
+            )} */}
 
-            {item && (
+            {/* {item && (
               <MenuItem
                 icon="duplicate"
                 onClick={() => this.props.onCopy(items, 'copy', this.props.onUnSelectAll)}
@@ -699,9 +699,9 @@ class FilesListFunctions extends Component<any, any> {
                   0
                 }
               />
-            )}
+            )} */}
 
-            {item && (
+            {/* {item && (
               <MenuItem
                 icon="move"
                 onClick={() => this.props.onCopy(items, 'cut', this.props.onUnSelectAll)}
@@ -712,9 +712,9 @@ class FilesListFunctions extends Component<any, any> {
                   0
                 }
               />
-            )}
+            )} */}
 
-            {item && (
+            {/* {item && (
               <MenuItem
                 icon="share"
                 onClick={() => {
@@ -726,7 +726,7 @@ class FilesListFunctions extends Component<any, any> {
                 label="Share"
                 disabled={!(item.accessLevel && item.accessLevel === 'EDIT') || itemsLength > 1}
               />
-            )}
+            )} */}
 
             {/* {item.type_ !== 'folder'
               ? item && (
@@ -767,9 +767,9 @@ class FilesListFunctions extends Component<any, any> {
                 )
               : null} */}
 
-            {item && <Menu.Divider />}
+            {/* {item && <Menu.Divider />} */}
 
-            {item && (
+            {/* {item && (
               <MenuItem
                 icon="trash"
                 onClick={() => {
@@ -784,12 +784,12 @@ class FilesListFunctions extends Component<any, any> {
                   !!items.filter(item => !(item.accessLevel && item.accessLevel === 'EDIT')).length
                 }
               />
-            )}
+            )} */}
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Menu.Divider title="سطل بازیافت" />
-
+            {/* 
             {item && (
               <MenuItem
                 icon="delete"
@@ -806,9 +806,9 @@ class FilesListFunctions extends Component<any, any> {
                   })
                 }
               />
-            )}
+            )} */}
 
-            {item && (
+            {/* {item && (
               <MenuItem
                 icon="document-share"
                 text="بازگردانی"
@@ -824,9 +824,9 @@ class FilesListFunctions extends Component<any, any> {
                   })
                 }
               />
-            )}
+            )} */}
 
-            {items.length < 2 && [
+            {/* {items.length < 2 && [
               <Menu.Divider title="مدیریت سطل بازیافت" key={0} />,
               <MenuItem
                 text="حذف همه"
@@ -854,7 +854,7 @@ class FilesListFunctions extends Component<any, any> {
                   })
                 }
               />,
-            ]}
+            ]} */}
           </React.Fragment>
         )}
       </Menu>,
@@ -1189,12 +1189,12 @@ class FilesListFunctions extends Component<any, any> {
       ) {
         if (item) {
           if (!item.isSelected) this.props.onSelectItem(item, this.props.filter.selected, false);
-          if (this.props.public) {
-            this.showPublicContextMenu(e, item);
-          } else {
-            // if (!item.isSelected) this.props.onSelectItem(item, this.props.filter.selected, false);
-            this.showContextMenu(e);
-          }
+          // if (this.props.public) {
+          //   this.showPublicContextMenu(e, item);
+          // } else {
+          // }
+          // if (!item.isSelected) this.props.onSelectItem(item, this.props.filter.selected, false);
+          this.showContextMenu(e);
         }
         return;
       }
@@ -1224,7 +1224,7 @@ class FilesListFunctions extends Component<any, any> {
               text="بروزرسانی"
               label={'Refresh'}
             />
-            {!this.props.copy.isEmpty && (
+            {/* {!this.props.copy.isEmpty && (
               <MenuItem
                 icon="document-open"
                 onClick={() =>
@@ -1233,68 +1233,69 @@ class FilesListFunctions extends Component<any, any> {
                 text={`چسباندن ${this.props.copy.items.length} فایل در اینجا`}
                 label={`Paste ` + this.props.copy.items.length.toString()}
               />
-            )}
+            )} */}
           </Menu>,
           { left: e.clientX, top: e.clientY },
           () => {}, // onContextMenuClose
-        );
-      } else if (pathname === '/trash') {
-        ContextMenu.show(
-          <Menu>
-            <React.Fragment>
-              <Menu.Divider title="سطل بازیافت" />
-              <MenuItem
-                text="حذف همه"
-                intent={Intent.DANGER}
-                onClick={() =>
-                  this.setState({
-                    disableContext: true,
-                    isConfirmOpen: true,
-                    confirmFunc: () => this.props.onEmptyTrash(),
-                    confirmText: `سطل بازیافت خالی خواهد شد آیا مطمئن هستید؟`,
-                  })
-                }
-              />
-              <MenuItem
-                text="بازگردانی همه"
-                label="Restore All"
-                onClick={() =>
-                  this.setState({
-                    disableContext: true,
-                    isConfirmOpen: true,
-                    confirmFunc: () => this.props.onRestoreAllFromTrash(),
-                    confirmText: `تمامی اطلاعات در سطل بازیافت به حافظه باز خواهد گشت آیا مطمئن هستید؟`,
-                  })
-                }
-              />
-              <Menu.Divider />
-              <MenuItem
-                icon="refresh"
-                onClick={() => this.onRefresh()}
-                text="بروزرسانی"
-                label={'Refresh'}
-              />
-            </React.Fragment>
-          </Menu>,
-          { left: e.clientX, top: e.clientY },
-          () => {}, // onContextMenuClose
-        );
-      } else {
-        ContextMenu.show(
-          <Menu>
-            <React.Fragment>
-              <MenuItem
-                icon="refresh"
-                onClick={() => this.onRefresh()}
-                text="بروزرسانی"
-                label={'Refresh'}
-              />
-            </React.Fragment>
-          </Menu>,
-          { left: e.clientX, top: e.clientY },
-          () => {},
         );
       }
+      // else if (pathname === '/trash') {
+      //   ContextMenu.show(
+      //     <Menu>
+      //       <React.Fragment>
+      //         <Menu.Divider title="سطل بازیافت" />
+      //         <MenuItem
+      //           text="حذف همه"
+      //           intent={Intent.DANGER}
+      //           onClick={() =>
+      //             this.setState({
+      //               disableContext: true,
+      //               isConfirmOpen: true,
+      //               confirmFunc: () => this.props.onEmptyTrash(),
+      //               confirmText: `سطل بازیافت خالی خواهد شد آیا مطمئن هستید؟`,
+      //             })
+      //           }
+      //         />
+      //         <MenuItem
+      //           text="بازگردانی همه"
+      //           label="Restore All"
+      //           onClick={() =>
+      //             this.setState({
+      //               disableContext: true,
+      //               isConfirmOpen: true,
+      //               confirmFunc: () => this.props.onRestoreAllFromTrash(),
+      //               confirmText: `تمامی اطلاعات در سطل بازیافت به حافظه باز خواهد گشت آیا مطمئن هستید؟`,
+      //             })
+      //           }
+      //         />
+      //         <Menu.Divider />
+      //         <MenuItem
+      //           icon="refresh"
+      //           onClick={() => this.onRefresh()}
+      //           text="بروزرسانی"
+      //           label={'Refresh'}
+      //         />
+      //       </React.Fragment>
+      //     </Menu>,
+      //     { left: e.clientX, top: e.clientY },
+      //     () => {}, // onContextMenuClose
+      //   );
+      // } else {
+      //   ContextMenu.show(
+      //     <Menu>
+      //       <React.Fragment>
+      //         <MenuItem
+      //           icon="refresh"
+      //           onClick={() => this.onRefresh()}
+      //           text="بروزرسانی"
+      //           label={'Refresh'}
+      //         />
+      //       </React.Fragment>
+      //     </Menu>,
+      //     { left: e.clientX, top: e.clientY },
+      //     () => {},
+      //   );
+      // }
     };
   };
 

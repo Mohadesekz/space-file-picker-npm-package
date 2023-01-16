@@ -173,7 +173,7 @@ $duration: 400ms;
         .infinite-scroll-component {
           overflow-y: auto;
           overflow-x: hidden !important;
-          max-height: calc(100vh - 80px);
+          max-height: calc(100vh - 160px);
 
           .bp3-non-ideal-state {
             height: 80px;

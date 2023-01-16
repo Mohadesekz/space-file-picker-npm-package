@@ -35,14 +35,14 @@
     display: none;
   }
   @media screen and (max-width: 600px) {
-    .app-logo {
-      display: none;
-    }
+    // .app-logo {
+    //   display: none;
+    // }
     .app-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-right: 0;
-      align-items: center;
+      // display: flex;
+      // justify-content: space-between;
+      // margin-right: 0;
+      // align-items: center;
       padding: 15px 10px;
       .toggle-menu {
         h1 {

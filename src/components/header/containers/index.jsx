@@ -21,11 +21,11 @@ const Header = props => {
       <AppLogo />
       {!props.public && (
         <div className="app-nav">
-          <div className="toggle-menu">
+          {/* <div className="toggle-menu">
             <Icon className="icon-menu" onClick={props.menuToggle} iconSize={20} icon="menu" />
             <h1>پاداسپیس</h1>
-          </div>
-          <Search {...routerProps} />
+          </div> */}
+          {/* <Search {...routerProps} /> */}
           <div className="user-settings pull-left">
             <UserSettings />
           </div>

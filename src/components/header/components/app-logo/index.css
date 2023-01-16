@@ -6,7 +6,7 @@
   position: absolute;
   padding: 0 5px;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .app-header .app-logo {
     width: 45px;
     height: 63px;
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
   }
-}
+} */
 
 .app-header .app-logo svg {
   float: right;
@@ -38,13 +38,13 @@
   color: #1e88e5;
   text-decoration: none;
 }
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   .app-header .app-logo h2 {
     display: none;
   }
-}
-@media screen and (max-width: 830px) {
+} */
+/* @media screen and (max-width: 830px) {
   .app-header .app-logo h2 {
     display: none;
   }
-}
+} */
