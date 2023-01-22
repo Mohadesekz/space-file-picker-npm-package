@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import lodashForeach from 'lodash/forEach';
-import { connect } from 'react-redux';
+import { batch, connect } from 'react-redux';
 import { fromEvent } from 'file-selector';
 import { Icon } from '@blueprintjs/core';
 import Dropzone from '../dropzone';
@@ -232,7 +232,17 @@ class ListViewTable extends Component {
             !this.mobileAndTabletCheck && this.runItem(item);
           }}
           onContextMenu={this.props.baseContextMenu(item)}
-          onSelect={() => this.props.onToggleItem(item)}
+          onSelect={() =>
+            // change this due to single or batch file pick
+            //single:
+
+            // !item.isSelected
+            //   ? this.props.onSelectItem(item, this.props.filter, this.cntrlIsPressed)
+            //   : this.props.onUnSelectItem(item)
+
+            // batch :
+            this.props.onToggleItem(item)
+          }
           hasSelect={isSelected}
           onDrop={
             shouldThereBeDropZoneItem && item.accessLevel === 'EDIT'

@@ -618,7 +618,7 @@ class FilesListFunctions extends Component<any, any> {
                 disabled={itemsLength > 100}
                 onClick={() => this.setState({ downloadDetails: items })}
                 text={`دانلود ${itemName}`}
-                data-title={itemsLength > 100 ? 'تعداد فایل‌ها بیشتر از حد مجاز است' : ''}
+                data-title={itemsLength > 100 && 'تعداد فایل‌ها بیشتر از حد مجاز است'}
               />
             )}
 
@@ -649,7 +649,7 @@ class FilesListFunctions extends Component<any, any> {
                 />
               )} */}
 
-            {item && (
+            {/* {item && (
               <MenuItem
                 icon="edit"
                 disabled={!(item.accessLevel && item.accessLevel === 'EDIT') || itemsLength > 1}
@@ -667,7 +667,7 @@ class FilesListFunctions extends Component<any, any> {
                 }}
                 text={`تغییر نام`}
               />
-            )}
+            )} */}
 
             {/* <Menu.Divider /> */}
 
@@ -987,7 +987,7 @@ class FilesListFunctions extends Component<any, any> {
             {item && (
               <MenuItem
                 icon="cloud-download"
-                disabled={item.length > 1}
+                disabled={item.length > 100}
                 onClick={() => this.setState({ downloadDetails: item })}
                 text={`دانلود ${itemName}`}
               />
