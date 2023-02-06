@@ -42,6 +42,8 @@ class ListViewTable extends Component {
     breadcrumb: PropTypes.array,
     public: PropTypes.bool,
     showRecents: PropTypes.bool,
+    singleOrBatch: PropTypes.bool,
+    canUpload: PropTypes.bool,
   };
 
   constructor(props) {
@@ -116,7 +118,11 @@ class ListViewTable extends Component {
     if (this.props.selectedCount > 0 && this.mobileAndTabletCheck) {
       this.props.onToggleItem(item);
     } else if (!item.isSelected) {
-      return this.props.onSelectItem(item, this.props.filter, this.cntrlIsPressed);
+      return this.props.onSelectItem(
+        item,
+        this.props.filter,
+        this.props.singleOrBatch && this.cntrlIsPressed,
+      );
     } else {
       return this.props.onUnSelectItem(item);
     }
@@ -183,8 +189,9 @@ class ListViewTable extends Component {
   };
 
   renderFileItem = () => {
-    let { data, recentSelectedFile, filter } = this.props;
-    const shouldThereBeDropZoneItem = !this.props.public && !this.props.loading && this.props.hash;
+    let { data, recentSelectedFile, filter, singleOrBatch, canUpload } = this.props;
+    const shouldThereBeDropZoneItem =
+      !this.props.public && !this.props.loading && this.props.hash && canUpload;
     let renderedItems = [];
 
     const recentsKeys = Object.keys(data);
@@ -241,7 +248,16 @@ class ListViewTable extends Component {
             //   : this.props.onUnSelectItem(item)
 
             // batch :
-            this.props.onToggleItem(item)
+
+            singleOrBatch
+              ? this.props.onToggleItem(item)
+              : !item.isSelected
+              ? this.props.onSelectItem(
+                  item,
+                  this.props.filter,
+                  singleOrBatch && this.cntrlIsPressed,
+                )
+              : this.props.onUnSelectItem(item)
           }
           hasSelect={isSelected}
           onDrop={
@@ -354,8 +370,19 @@ class ListViewTable extends Component {
   };
 
   render() {
-    const { data, size, loading, recents, filter, body, accessLevel } = this.props;
+    const {
+      data,
+      size,
+      loading,
+      recents,
+      filter,
+      body,
+      accessLevel,
+      canUpload,
+      singleOrBatch,
+    } = this.props;
     const { desc, sortType } = this.state;
+
     const shouldThereBeDropZone =
       !this.props.public &&
       !loading &&
@@ -363,7 +390,8 @@ class ListViewTable extends Component {
       accessLevel === 'EDIT' &&
       window.location.pathname !== '/bookmark' &&
       window.location.pathname !== '/shared-with-me' &&
-      window.location.pathname !== '/recent';
+      window.location.pathname !== '/recent' &&
+      canUpload;
     return (
       <Fragment>
         <div className="small-devices">
@@ -373,7 +401,13 @@ class ListViewTable extends Component {
             ) : (
               <h1>انتخاب همه موارد</h1>
             )}
-            <input type="checkbox" onChange={this.selectAllFiles} checked={this.isSelectedAll()} />
+            <input
+              type="checkbox"
+              onChange={this.selectAllFiles}
+              checked={this.isSelectedAll()}
+              disabled={!singleOrBatch}
+              style={{ cursor: singleOrBatch ? 'pointer' : 'not-allowed' }}
+            />
           </label>
           {/* <div className="actions">
             <div className="small-device-menu" onClick={this.props.baseContextMenu(null)}></div>
@@ -493,10 +527,11 @@ class ListViewTable extends Component {
                               type="checkbox"
                               onChange={this.selectAllFiles}
                               checked={this.isSelectedAll()}
+                              disabled={!singleOrBatch}
+                              style={{ cursor: singleOrBatch ? 'pointer' : 'not-allowed' }}
                             />
                           </label>
                         </th>
-
                         {filter !== 'lastmod' ? (
                           <th onClick={() => this.sortFiles('name')}>
                             <div className="sorting-btn">
@@ -513,7 +548,6 @@ class ListViewTable extends Component {
                         ) : (
                           <th style={{ cursor: 'auto' }}>لیست تمامی فایل ها</th>
                         )}
-
                         {filter !== 'lastmod' ? (
                           <th
                             onClick={() =>
@@ -536,7 +570,6 @@ class ListViewTable extends Component {
                         ) : (
                           <th style={{ cursor: 'auto' }}>تاریخ</th>
                         )}
-
                         {filter !== 'lastmod' && filter !== 'favorite' ? (
                           <th onClick={() => this.sortFiles('size')}>
                             <div className="sorting-btn">
@@ -553,7 +586,6 @@ class ListViewTable extends Component {
                         ) : (
                           <th style={{ cursor: 'auto' }}>حجم</th>
                         )}
-
                         <th className={'check-box-header'}>
                           <label className="select-all">
                             <input

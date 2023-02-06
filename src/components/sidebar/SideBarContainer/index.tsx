@@ -157,6 +157,7 @@ class SideBarContainer extends Component<IProps, IState> {
       <aside
         className={`app-sidebar${this.props.menuStatus ? ' show' : ''}`}
         ref={this.sidebarArea}
+        style={{ display: 'none' }}
       >
         <Icon
           className="icon-close"

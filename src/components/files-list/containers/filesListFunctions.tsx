@@ -37,7 +37,7 @@ import {
   selectAllItems,
   playAudioList,
 } from '../actions';
-
+import { singleOrBatchPick, canUpload } from 'components/Main/Actions';
 import { shareRemoveRequest } from '../../information/actions';
 import { AddToPlayerList } from '../actions/files';
 
@@ -51,9 +51,18 @@ export const mapStateToProps = (state: any) => ({
   shares: state.files.shares,
   publicFolderNeedPassword: state.files.list.publicFolderNeedPassword,
   publicFolderForbidden: state.files.list.publicFolderForbidden,
+  singleOrBatch: state.main.singleOrBatch,
+  canUpload: state.main.canUpload,
 });
 
 export const mapDispatchToProps = (dispatch: any) => ({
+  onSingleOrBatchPick(singleOrBatchFlag: boolean) {
+    dispatch(singleOrBatchPick(singleOrBatchFlag));
+  },
+  canUploadMode(canUploadFlag: boolean) {
+    dispatch(canUpload(canUploadFlag));
+  },
+
   fetchFileDetail(fileHash: string, isPublic: boolean) {
     dispatch(fetchFileDetailRequest(fileHash, isPublic));
   },
@@ -305,6 +314,8 @@ class FilesListFunctions extends Component<any, any> {
       publicFolderPassword: null,
       downloadDetails: null,
       showRecents: true,
+      isIFrameOpen: false,
+      receiveDataFlag: false,
     };
 
     if (this.props.public && this.props.publicFolderPasswordProp) {
@@ -319,21 +330,21 @@ class FilesListFunctions extends Component<any, any> {
         this.props.public,
         this.props.hash,
       );
-      if (
-        this.props.filter.selected === 'mybox' &&
-        !this.props.public &&
-        !folderHash &&
-        localStorage.getItem('show-recents') !== 'false'
-      ) {
-        this.getRecentActivities();
-      }
+      // if (
+      //   this.props.filter.selected === 'mybox' &&
+      //   !this.props.public &&
+      //   !folderHash &&
+      //   localStorage.getItem('show-recents') !== 'false'
+      // ) {
+      //   this.getRecentActivities();
+      // }
     }
   }
 
   getRecentActivities = () => {
-    if (!this.mobileAndTabletCheck) {
-      this.props.onGetRecents();
-    }
+    // if (!this.mobileAndTabletCheck) {
+    //   this.props.onGetRecents();
+    // }
   };
 
   componentDidMount() {
@@ -341,7 +352,7 @@ class FilesListFunctions extends Component<any, any> {
       showRecents: localStorage.getItem('show-recents') === 'false' ? false : true,
     });
   }
-  componentDidUpdate(prevProps: any) {
+  componentDidUpdate(prevProps: any, prevState: any) {
     const strBody = this.props.filter.body ? JSON.stringify(this.props.filter.body) : '';
     if (
       !Object.is(prevProps.filter.selected, this.props.filter.selected) ||
@@ -377,17 +388,22 @@ class FilesListFunctions extends Component<any, any> {
           this.props.match.params.folderHash,
         );
       }
-      if (
-        this.props.filter.selected === 'mybox' &&
-        !this.props.public &&
-        this.state.showRecents === true
-      ) {
-        this.getRecentActivities();
-      }
+      // if (
+      //   this.props.filter.selected === 'mybox' &&
+      //   !this.props.public &&
+      //   this.state.showRecents === true
+      // ) {
+      //   this.getRecentActivities();
+      // }
     }
 
     if (!Object.is(prevProps.match.params.folderHash, this.props.match.params.folderHash)) {
       this.onChangeFolderRoute();
+    }
+
+    const isIFrame = this.state.receiveDataFlag !== prevState.receiveDataFlag;
+    if (isIFrame) {
+      this.getData();
     }
   }
 
@@ -873,13 +889,13 @@ class FilesListFunctions extends Component<any, any> {
       this.props.match.params.folderHash,
     );
 
-    if (
-      this.props.filter.selected === 'mybox' &&
-      !this.props.public &&
-      this.state.showRecents === true
-    ) {
-      this.getRecentActivities();
-    }
+    // if (
+    //   this.props.filter.selected === 'mybox' &&
+    //   !this.props.public &&
+    //   this.state.showRecents === true
+    // ) {
+    //   this.getRecentActivities();
+    // }
 
     this.props.onUnSelectAll();
   };
@@ -899,7 +915,8 @@ class FilesListFunctions extends Component<any, any> {
     this.props.onChangeName(
       this.props.hash + (this.body ? JSON.stringify(this.body) : ''),
       { ...data, undo: true },
-      this.state.showRecents === true ? this.getRecentActivities : () => {},
+      // this.state.showRecents === true ? this.getRecentActivities : () => {},
+      () => {},
     );
   };
 
@@ -1126,9 +1143,6 @@ class FilesListFunctions extends Component<any, any> {
                   </svg>
                 }
                 onClick={() => {
-                  console.log(
-                    this.state.showRecents === true ? console.log('fuck') : console.log('shit'),
-                  );
                   item.parentHash = this.props.hash;
                   this.props.onTrash(
                     [item],
@@ -1211,7 +1225,7 @@ class FilesListFunctions extends Component<any, any> {
       ) {
         ContextMenu.show(
           <Menu>
-            {!this.props.public && (
+            {!this.props.public && this.props.canUpload && (
               <MenuItem
                 icon="folder-new"
                 onClick={() => (this.newFolderRef as any).current.handleOpen()}
@@ -1401,23 +1415,51 @@ class FilesListFunctions extends Component<any, any> {
   closePdfReader = () => {
     this.setState({ pdfReader: { open: false, data: null } });
   };
-  onSaveRecentMode = () => {
-    this.state.showRecents !== true
-      ? localStorage.setItem('show-recents', 'true')
-      : localStorage.setItem('show-recents', 'false');
-    this.setState((prevState: any) => ({
-      showRecents: !prevState.showRecents,
-    }));
 
-    if (
-      this.props.filter.selected === 'mybox' &&
-      !this.props.public &&
-      this.state.showRecents !== true
-    ) {
-      this.getRecentActivities();
+  onSaveRecentMode = () => {
+    // this.state.showRecents !== true
+    //   ? localStorage.setItem('show-recents', 'true')
+    //   : localStorage.setItem('show-recents', 'false');
+    // this.setState((prevState: any) => ({
+    //   showRecents: !prevState.showRecents,
+    // }));
+    // if (
+    //   this.props.filter.selected === 'mybox' &&
+    //   !this.props.public &&
+    //   this.state.showRecents !== true
+    // ) {
+    //   this.getRecentActivities();
+    // }
+  };
+
+  getData = () => {
+    window.addEventListener('message', this.receiveMessage, false);
+  };
+
+  receiveMessage = (event: any) => {
+    if (event.data) {
+      if (event.data.title == 'single_or_batch') {
+        this.props.onSingleOrBatchPick(event.data.message === 'batch' ? true : false);
+      }
+      if (event.data.title == 'can_upload') {
+        this.props.canUploadMode(event.data.message);
+      }
+      if (event.data.title == 'iFrame-open') {
+        this.onIFrameMode(event.data.message === 'true' ? true : false);
+      }
+      if (event.data.title == 'no_choice') {
+        this.props.onSingleOrBatchPick(false);
+        this.onIFrameMode(false);
+      }
     }
   };
 
+  onIFrameMode = (mode: boolean) => {
+    this.setState({ isIFrameOpen: mode });
+  };
+  OnReceiveDataFlag = (flag: boolean) => {
+    this.setState({ receiveDataFlag: flag });
+  };
   sharedLinkPassword = (e: any) => {
     this.password = e.target.value;
   };

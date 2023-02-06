@@ -16,6 +16,29 @@ import { mapStateToProps, mapDispatchToProps } from './filesListFunctions';
 import { Overlay, Icon } from '@blueprintjs/core';
 import './index.scss';
 class FilesListContainer extends FilesListFunctions {
+  componentDidMount() {
+    this.OnReceiveDataFlag(true);
+    window.parent.postMessage(
+      {
+        title: 'ready-to-recieve',
+        message: 'ready-to-recieve',
+      },
+      '*',
+    );
+  }
+
+  sendMessage = () => {
+    if (this.props.itemInfo && this.props.itemInfo.hash) {
+      window.parent.postMessage(
+        {
+          title: 'selected_hashes',
+          message: this.props.itemInfo.hash,
+        },
+        '*',
+      );
+    }
+  };
+
   render() {
     return (
       <div
@@ -26,6 +49,15 @@ class FilesListContainer extends FilesListFunctions {
         //@ts-ignore
         onContextMenu={this.state.disableContext ? null : this.baseContextMenu(null)}
       >
+        <div style={{ width: '180px', height: '80px', backgroundColor: 'pink' }}>
+          {this.props.singleOrBatch ? 'batch' : 'single'}
+          <br />
+          {this.props.canUpload ? 'you can upload' : 'you can not upload'}
+        </div>
+        {this.state.isIFrameOpen && (
+          <button onClick={this.sendMessage}>DONE PICKING FILES? CLICK HERE</button>
+        )}
+
         {this.state.downloadDetails ? (
           <Download
             fileDetails={this.state.downloadDetails}
@@ -105,6 +137,8 @@ class FilesListContainer extends FilesListFunctions {
               public={this.props.public}
               getFileDetail={this.getFileDetail}
               navigation={this.props.history}
+              singleOrBatch={this.props.singleOrBatch}
+              canUpload={this.props.canUpload}
             />
           )}
 
@@ -171,6 +205,8 @@ class FilesListContainer extends FilesListFunctions {
               public={this.props.public}
               getFileDetail={this.getFileDetail}
               navigation={this.props.history}
+              singleOrBatch={this.props.singleOrBatch}
+              canUpload={this.props.canUpload}
             />
           )}
 

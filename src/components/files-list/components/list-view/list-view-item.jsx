@@ -59,7 +59,7 @@ const Item = ({
       onDragLeave={onDragLeave}
       getDataTransferItems={evt => fromEvent(evt)}
       disabled={!isFolder}
-      activeClassName={isFolder && canDorp ? 'dropzone-folder-active' : ''}
+      activeClassName={false ? 'dropzone-folder-activeeee' : ''}
       rejectClassName={isFolder ? 'dropzone-folder-reject' : ''}
       disableClick
       renderAsTr

@@ -108,7 +108,7 @@ class PodSpace extends Component<IProps, IState> {
               <Header {...routerProps} menuToggle={this.menuToggle} />
               {/* <AlertSwitchToApp /> */}
               <div className="app-intro">
-                {/* <section
+                <section
                   className={`app-sidebar-overlay${this.state.menuStatus ? ' show' : ''}`}
                   onClick={this.menuToggle}
                 />
@@ -119,7 +119,7 @@ class PodSpace extends Component<IProps, IState> {
                     menuToggle={this.menuToggle}
                     {...routerProps}
                   />
-                ) : null} */}
+                ) : null}
                 <section
                   className={`app-content${this.state.sideBarIsOpen ? ' info-nav-active' : ''}`}
                 >

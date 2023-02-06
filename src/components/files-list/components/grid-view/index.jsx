@@ -17,6 +17,7 @@ import { Icon } from '@blueprintjs/core';
 import { Util } from '../../../../helpers';
 import { addItemInList } from '../../actions';
 import './index.scss';
+import { canUpload } from 'components/Main/Actions';
 
 class GridView extends Component {
   mobileAndTabletCheck = Util.mobileAndTabletCheck();
@@ -39,6 +40,8 @@ class GridView extends Component {
     breadcrumb: PropTypes.array,
     body: PropTypes.object,
     showRecents: PropTypes.bool,
+    singleOrBatch: PropTypes.bool,
+    canUpload: PropTypes.bool,
   };
 
   constructor(props) {
@@ -114,7 +117,11 @@ class GridView extends Component {
     if (this.props.selectedCount > 0 && this.mobileAndTabletCheck) {
       this.props.onToggleItem(item);
     } else if (!item.isSelected) {
-      return this.props.onSelectItem(item, this.props.filter, this.cntrlIsPressed);
+      return this.props.onSelectItem(
+        item,
+        this.props.filter,
+        this.props.singleOrBatch && this.cntrlIsPressed,
+      );
     } else {
       return this.props.onUnSelectItem(item);
     }
@@ -205,13 +212,14 @@ class GridView extends Component {
   };
 
   renderFileItem = files => {
-    const { filter } = this.props;
+    const { filter, canUpload, singleOrBatch } = this.props;
     const shouldThereBeDropZoneItem =
       !this.props.public &&
       !this.props.loading &&
       this.props.hash &&
       filter !== 'trash' &&
-      filter !== 'shared';
+      filter !== 'shared' &&
+      canUpload;
     let renderItems = [];
     lodashForeach(files, item => {
       renderItems.push(
@@ -241,7 +249,7 @@ class GridView extends Component {
           }}
           onDoubleClick={() => {
             this.clearPendingPromises();
-            this.props.onSelectItem(item, this.props.filter, this.cntrlIsPressed);
+            this.props.onSelectItem(item, this.props.filter, singleOrBatch && this.cntrlIsPressed);
             !this.mobileAndTabletCheck && this.runItem(item);
           }}
           onContextMenu={this.props.baseContextMenu(item)}
@@ -284,7 +292,17 @@ class GridView extends Component {
   };
 
   render() {
-    let { data, filter, size, recents, body, loading, accessLevel } = this.props;
+    let {
+      data,
+      filter,
+      size,
+      recents,
+      body,
+      loading,
+      accessLevel,
+      canUpload,
+      singleOrBatch,
+    } = this.props;
     const shouldThereBeDropZone =
       !this.props.public &&
       !loading &&
@@ -292,7 +310,8 @@ class GridView extends Component {
       accessLevel === 'EDIT' &&
       window.location.pathname !== '/bookmark' &&
       window.location.pathname !== '/shared-with-me' &&
-      window.location.pathname !== '/recent';
+      window.location.pathname !== '/recent' &&
+      canUpload;
 
     const folders = lodashFilter(data, item => item.type_ === 'folder');
     const folderSize = lodashSize(folders);
@@ -303,7 +322,13 @@ class GridView extends Component {
       <Fragment>
         <div className="small-devices">
           <label className="select-all">
-            <input type="checkbox" onChange={this.selectAllFiles} checked={this.isSelectedAll()} />
+            <input
+              type="checkbox"
+              onChange={this.selectAllFiles}
+              checked={this.isSelectedAll()}
+              disabled={!singleOrBatch}
+              style={{ cursor: singleOrBatch ? 'pointer' : 'not-allowed' }}
+            />
             {this.props.selectedCount ? (
               <h1>{this.props.selectedCount} آیتم انتخاب شد</h1>
             ) : (

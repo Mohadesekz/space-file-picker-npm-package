@@ -13,3 +13,17 @@ export const themeMode = mode => {
     type: Constants.THEME_MODE,
   };
 };
+
+export const singleOrBatchPick = singleOrBatchPick => {
+  return {
+    singleOrBatchPick,
+    type: Constants.SINGLE_OR_BATCH_PICK,
+  };
+};
+
+export const canUpload = canUpload => {
+  return {
+    canUpload,
+    type: Constants.CAN_UPLOAD,
+  };
+};

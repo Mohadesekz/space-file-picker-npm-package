@@ -1,40 +1,73 @@
-.check-size{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 330px;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #b8b8b8;
-    margin-left: 40px;
-    border-radius: 2px;
-    z-index: 1;
-    background: #FFF;
-    max-width: 100%;
-    .bp3-progress-bar{
-        direction: ltr;
+.check-size {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 330px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #b8b8b8;
+  margin-left: 40px;
+  border-radius: 2px;
+  z-index: 1;
+  background: #fff;
+  max-width: 100%;
+  .bp3-progress-bar {
+    direction: ltr;
+  }
+  .size-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: black;
+    font-weight: bold;
+    span {
+      font-weight: bold;
     }
-    .size-list{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        font-size: 11px;
-        color: black;
-        font-weight: bold;
-        span{
-            font-weight: bold;
-        }
+  }
+  .header {
+    display: flex;
+    margin-bottom: 15px;
+    p {
+      margin: 0;
+      font-size: 10px;
+      flex: 1;
     }
-    .header{
-        display: flex;
-        margin-bottom: 15px;
-        p{
-            margin: 0;
-            font-size: 10px;
-            flex: 1;
-        }
-        .bp3-icon{
-            cursor: pointer;
-        }
+    .bp3-icon {
+      cursor: pointer;
     }
+  }
+}
+.from-label {
+  .bp3-label {
+    font-weight: normal !important;
+    color: #000 !important;
+    margin-bottom: 20px !important;
+  }
+}
+.bp3-dialog-footer-actions {
+  justify-content: space-between;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    // justify-content: center;
+  }
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-right: 0 !important;
+    width: fit-content !important;
+  }
+}
+.remember-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  input {
+    margin: 0px 3px 3px 4px;
+  }
+}
+.action-containter {
+  display: flex;
 }

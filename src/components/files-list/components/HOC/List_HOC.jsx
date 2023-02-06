@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import { newFetch } from '../../../../helpers';
 import { AppToaster } from '../../../toast';
-import { Intent, Dialog, Classes, FormGroup, Button, Icon } from '@blueprintjs/core';
+import {
+  Intent,
+  Dialog,
+  Classes,
+  FormGroup,
+  Button,
+  Icon,
+  RadioGroup,
+  Radio,
+  Alignment,
+} from '@blueprintjs/core';
 import Util from '../../../../helpers/util';
 import './List_HOC.scss';
+import { act } from 'react-dom/test-utils';
 
 const DoubleSlashesReg = /\/\/+/g;
 
@@ -17,11 +28,22 @@ const List_HOC = FileListComponent => {
       this.inFolderDrop = false;
       this.cntrlIsPressed = false;
       this.state = {
+        uploadOption: 'KEEP_BOTH',
+        useOptionForAll: false,
         files: [],
         dialogIndex: -1,
         uploadInProgress: null,
       };
     }
+
+    handleUploadOption = e => {
+      const uploadOption = e.target.value;
+      this.setState({ uploadOption });
+    };
+
+    rememberOptionForAll = e => {
+      this.setState({ useOptionForAll: !this.state.useOptionForAll });
+    };
 
     getDirectoryList = (pathList, fileList, index) => {
       return new Promise(resolve => {
@@ -555,6 +577,10 @@ const List_HOC = FileListComponent => {
         files[index].exist = false;
         files[index].replace = false;
         files[index].cancelUpload = true;
+      } else if (action === 'CANCEL_ALL') {
+        files[index].exist = false;
+        files[index].replace = false;
+        files[index].cancelUpload = true;
       }
 
       const duplicateFileIndex = files.findIndex(file => file.exist);
@@ -571,7 +597,15 @@ const List_HOC = FileListComponent => {
           files,
           dialogIndex: duplicateFileIndex,
         });
+
+        if (this.state.useOptionForAll || action === 'CANCEL_ALL') {
+          this.duplicateFileAction(duplicateFileIndex, action);
+        }
       }
+      this.setState({
+        uploadOption: 'KEEP_BOTH',
+        useOptionForAll: false,
+      });
     }
 
     folderDragEnter = e => {
@@ -607,23 +641,70 @@ const List_HOC = FileListComponent => {
                 className="header modal-custom share-modal"
               >
                 <div className={Classes.DIALOG_BODY}>
-                  <FormGroup label="آیا مایلید فایل قبلی با فایل جدید جایگزین شود؟"></FormGroup>
+                  <FormGroup
+                    label="آیا مایلید فایل قبلی با فایل جدید جایگزین شود؟"
+                    className="from-label"
+                  >
+                    <RadioGroup
+                      onChange={this.handleUploadOption}
+                      selectedValue={this.state.uploadOption}
+                      inline={true}
+                      className="radio-group"
+                    >
+                      <Radio
+                        alignIndicator={Alignment.RIGHT}
+                        selected={true}
+                        label="بارگذاری و نگهداری هردو"
+                        value="KEEP_BOTH"
+                      />
+                      <Radio
+                        alignIndicator={Alignment.RIGHT}
+                        label="جایگذاری با قبلی"
+                        value="REPLACE"
+                      />
+
+                      <Radio
+                        alignIndicator={Alignment.RIGHT}
+                        label="نگهداری نسخه پیشین"
+                        value="CANCEL"
+                      />
+                    </RadioGroup>
+                  </FormGroup>
                 </div>
 
                 <div className={Classes.DIALOG_FOOTER}>
                   <div className={Classes.DIALOG_FOOTER_ACTIONS}>
-                    <Button onClick={() => this.duplicateFileAction(index, 'REPLACE')}>
+                    {/* <Button onClick={() => this.duplicateFileAction(index, 'REPLACE')}>
                       جایگذاری با قبلی
                     </Button>
 
                     <Button onClick={() => this.duplicateFileAction(index, 'KEEP_BOTH')}>
                       بارگذاری و نگهداری هردو
-                    </Button>
+                    </Button> */}
 
-                    <Button onClick={() => this.duplicateFileAction(index, 'CANCEL')}>
-                      {' '}
-                      انصراف بارگذاری
-                    </Button>
+                    <label className="remember-option">
+                      <input
+                        type="checkbox"
+                        onChange={this.rememberOptionForAll}
+                        checked={this.state.useOptionForAll}
+                        value={this.state.useOptionForAll}
+                      />
+                      <span className="bp3-control-indicator">انتخاب برای همه</span>
+                    </label>
+                    <div className="action-containter">
+                      <Button
+                        disabled={this.state.uploadOption === ''}
+                        onClick={() => {
+                          this.duplicateFileAction(index, this.state.uploadOption);
+                        }}
+                        intent={Intent.PRIMARY}
+                      >
+                        تایید
+                      </Button>
+                      <Button onClick={() => this.duplicateFileAction(index, 'CANCEL_ALL')}>
+                        انصراف بارگذاری
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Dialog>
