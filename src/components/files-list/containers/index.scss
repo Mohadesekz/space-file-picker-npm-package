@@ -72,3 +72,22 @@
     }
   }
 }
+.submit-button {
+  margin: 20px 0 10px;
+  padding: 10px 25px;
+  border-radius: 6px !important;
+  margin-left: 5px;
+  span {
+    font-size: 16px;
+  }
+}
+.helper-text {
+  width: fit-content;
+  margin-top: 0px;
+  font-size: 13px;
+  color: tomato;
+}
+// .submit-button[title]:hover {
+//   border: 1px solid #888;
+//   background-color: red;
+// }

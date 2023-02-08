@@ -37,7 +37,7 @@ import {
   selectAllItems,
   playAudioList,
 } from '../actions';
-import { singleOrBatchPick, canUpload } from 'components/Main/Actions';
+import { singleOrBatchPick, canUpload, isFolderAllowed } from 'components/Main/Actions';
 import { shareRemoveRequest } from '../../information/actions';
 import { AddToPlayerList } from '../actions/files';
 
@@ -53,6 +53,7 @@ export const mapStateToProps = (state: any) => ({
   publicFolderForbidden: state.files.list.publicFolderForbidden,
   singleOrBatch: state.main.singleOrBatch,
   canUpload: state.main.canUpload,
+  folderAllowed: state.main.isFolderAllowed,
 });
 
 export const mapDispatchToProps = (dispatch: any) => ({
@@ -61,6 +62,10 @@ export const mapDispatchToProps = (dispatch: any) => ({
   },
   canUploadMode(canUploadFlag: boolean) {
     dispatch(canUpload(canUploadFlag));
+  },
+
+  onFolderAllowed(floderAllowedFlag: boolean) {
+    dispatch(isFolderAllowed(floderAllowedFlag));
   },
 
   fetchFileDetail(fileHash: string, isPublic: boolean) {
@@ -316,6 +321,7 @@ class FilesListFunctions extends Component<any, any> {
       showRecents: true,
       isIFrameOpen: false,
       receiveDataFlag: false,
+      folderAllowedError: false,
     };
 
     if (this.props.public && this.props.publicFolderPasswordProp) {
@@ -399,6 +405,16 @@ class FilesListFunctions extends Component<any, any> {
 
     if (!Object.is(prevProps.match.params.folderHash, this.props.match.params.folderHash)) {
       this.onChangeFolderRoute();
+    }
+
+    if (!Object.is(prevProps.itemInfo.data, this.props.itemInfo.data)) {
+      this.setState({ folderAllowedError: false });
+      for (var i = 0; i < this.props.itemInfo.data.length; i++) {
+        if (this.props.itemInfo.data[i].type_ == 'folder') {
+          this.setState({ folderAllowedError: true });
+          break;
+        }
+      }
     }
 
     const isIFrame = this.state.receiveDataFlag !== prevState.receiveDataFlag;
@@ -1443,6 +1459,9 @@ class FilesListFunctions extends Component<any, any> {
       }
       if (event.data.title == 'can_upload') {
         this.props.canUploadMode(event.data.message);
+      }
+      if (event.data.title == 'folder_allowed') {
+        this.props.onFolderAllowed(event.data.message);
       }
       if (event.data.title == 'iFrame-open') {
         this.onIFrameMode(event.data.message === 'true' ? true : false);

@@ -13,7 +13,7 @@ import Download from './download';
 import { connect } from 'react-redux';
 import FilesListFunctions from './filesListFunctions';
 import { mapStateToProps, mapDispatchToProps } from './filesListFunctions';
-import { Overlay, Icon } from '@blueprintjs/core';
+import { Overlay, Icon, Button } from '@blueprintjs/core';
 import './index.scss';
 class FilesListContainer extends FilesListFunctions {
   componentDidMount() {
@@ -29,6 +29,7 @@ class FilesListContainer extends FilesListFunctions {
 
   sendMessage = () => {
     if (this.props.itemInfo && this.props.itemInfo.hash) {
+      // console.log(this.props.itemInfo.data);
       window.parent.postMessage(
         {
           title: 'selected_hashes',
@@ -53,11 +54,21 @@ class FilesListContainer extends FilesListFunctions {
           {this.props.singleOrBatch ? 'batch' : 'single'}
           <br />
           {this.props.canUpload ? 'you can upload' : 'you can not upload'}
+          {this.props.folderAllowed ? 'you can choose folder' : 'you can not choose folder'}
         </div>
         {this.state.isIFrameOpen && (
-          <button onClick={this.sendMessage}>DONE PICKING FILES? CLICK HERE</button>
+          <div style={{ display: 'flex', alignItems: 'end', flexDirection: 'column' }}>
+            <Button
+              disabled={this.props.itemInfo.data < 1 || this.state.folderAllowedError}
+              onClick={this.sendMessage}
+              intent={Intent.PRIMARY}
+              className={'submit-button'}
+              title={this.state.folderAllowedError ? 'شما مجاز به انتخاب فولدر نیستید.' : ''}
+            >
+              تایید
+            </Button>
+          </div>
         )}
-
         {this.state.downloadDetails ? (
           <Download
             fileDetails={this.state.downloadDetails}
@@ -72,9 +83,7 @@ class FilesListContainer extends FilesListFunctions {
           !this.props.publicFolderPassword &&
           this.props.publicFolderNeedPassword &&
           this.renderHandleError()}
-
         {this.props.public && this.props.publicFolderForbidden && this.renderHandleForbidden()}
-
         {!this.props.publicFolderNeedPassword &&
           !this.props.publicFolderForbidden &&
           Object.is(this.props.view, 'list') && (
@@ -141,7 +150,6 @@ class FilesListContainer extends FilesListFunctions {
               canUpload={this.props.canUpload}
             />
           )}
-
         {!this.props.publicFolderNeedPassword &&
           !this.props.publicFolderForbidden &&
           Object.is(this.props.view, 'grid') && (
@@ -209,7 +217,6 @@ class FilesListContainer extends FilesListFunctions {
               canUpload={this.props.canUpload}
             />
           )}
-
         <Rename
           onChangeName={this.onChangeName}
           ref={this.renameRef as any}
@@ -230,12 +237,10 @@ class FilesListContainer extends FilesListFunctions {
             shares={this.props.shares}
           />
         ) : null}
-
         <CreateFolder
           onCreate={this.props.onCreateFolder(this.props.hash, this.onRefresh)}
           ref={this.newFolderRef as any}
         />
-
         <Alert
           cancelButtonText="لغو"
           confirmButtonText="تایید"
@@ -263,7 +268,6 @@ class FilesListContainer extends FilesListFunctions {
             password={this.state.imageSlider.password}
           />
         ) : null}
-
         {this.state.VideoPlayer.open ? (
           <VideoPlayer
             list={this.state.VideoPlayer.list}
@@ -273,7 +277,6 @@ class FilesListContainer extends FilesListFunctions {
             password={this.state.VideoPlayer.password}
           />
         ) : null}
-
         {this.state.pdfReader.open ? (
           <Overlay
             className="pdf-reader"

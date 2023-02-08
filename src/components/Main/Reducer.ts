@@ -6,6 +6,7 @@ const MainDefaultState: {
   mode: boolean;
   singleOrBatch: boolean;
   canUpload: boolean;
+  isFolderAllowed: boolean;
 } = {
   exception: false,
   mode: true,
@@ -13,6 +14,7 @@ const MainDefaultState: {
   // True means batch pick and False means single pick
   singleOrBatch: true,
   canUpload: true,
+  isFolderAllowed: true,
 };
 
 const MainReducer = (state = MainDefaultState, action: any) => {
@@ -39,6 +41,12 @@ const MainReducer = (state = MainDefaultState, action: any) => {
       return {
         ...state,
         canUpload: action.canUpload,
+      };
+    }
+    if (action.type === Constants.IS_FOLDER_ALLOWED) {
+      return {
+        ...state,
+        isFolderAllowed: action.isFolderAllowed,
       };
     }
   } catch (error) {
