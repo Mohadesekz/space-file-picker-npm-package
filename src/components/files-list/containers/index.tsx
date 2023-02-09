@@ -54,6 +54,7 @@ class FilesListContainer extends FilesListFunctions {
           {this.props.singleOrBatch ? 'batch' : 'single'}
           <br />
           {this.props.canUpload ? 'you can upload' : 'you can not upload'}
+          <br />
           {this.props.folderAllowed ? 'you can choose folder' : 'you can not choose folder'}
         </div>
         {this.state.isIFrameOpen && (

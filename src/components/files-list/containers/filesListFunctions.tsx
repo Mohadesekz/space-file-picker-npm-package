@@ -407,7 +407,10 @@ class FilesListFunctions extends Component<any, any> {
       this.onChangeFolderRoute();
     }
 
-    if (!Object.is(prevProps.itemInfo.data, this.props.itemInfo.data)) {
+    if (
+      !this.props.folderAllowed &&
+      !Object.is(prevProps.itemInfo.data, this.props.itemInfo.data)
+    ) {
       this.setState({ folderAllowedError: false });
       for (var i = 0; i < this.props.itemInfo.data.length; i++) {
         if (this.props.itemInfo.data[i].type_ == 'folder') {

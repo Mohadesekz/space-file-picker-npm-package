@@ -28,9 +28,9 @@ export const canUpload = canUpload => {
   };
 };
 
-export const isFolderAllowed = flag => {
+export const isFolderAllowed = isFolderAllowed => {
   return {
-    flag,
+    isFolderAllowed,
     type: Constants.IS_FOLDER_ALLOWED,
   };
 };
